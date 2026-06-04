@@ -1,0 +1,126 @@
+% !TeX program = xelatex
+%% Formatted according to the SEEP2026 proceedings template
+%% (Tor Vergata University, Rome, 20-23 July 2026).
+%% NOTE: this file must be compiled with XeLaTeX (or LuaLaTeX),
+%% because it uses the real Arial / Arial Narrow / Times New Roman fonts
+%% required by the template. It will NOT compile with pdfLaTeX.
+\documentclass[12pt,a4paper]{article}
+
+% ---------- Type area ----------
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm,%
+            headsep=0.6cm,includehead]{geometry}
+
+% ---------- Math ----------
+\usepackage{amsmath}
+
+% ---------- Fonts (template-specified) ----------
+\usepackage{fontspec}
+\setmainfont{Times New Roman}                 % Body text, affiliation, header
+\newfontfamily\arialfont{Arial}               % Headings, authors, captions
+\newfontfamily\arialnarrow{Arial Narrow}      % Paper title
+
+% Times-consistent math (digits, upright and symbols), integrated with fontspec.
+% Replaces newtxmath, which under XeLaTeX let math digits fall back to Latin Modern.
+\usepackage{unicode-math}
+\setmathfont{texgyretermes-math.otf}          % Times-clone math font
+
+% ---------- Graphics ----------
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+% ---------- Running header (every page), no page numbers ----------
+\usepackage{fancyhdr}
+\newcommand{\seepheader}{\itshape Proceedings of SEEP2026, 20-23 July 2026,%
+\ Tor Vergata University, Rome, Italy}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{14.5pt}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\normalfont\fontsize{12}{14}\selectfont\seepheader}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhead[L]{\normalfont\fontsize{12}{14}\selectfont\seepheader}%
+}
+\pagenumbering{gobble}            % no page numbers
+
+% ---------- Section headings (Heading 1/2/3 styles) ----------
+\usepackage{titlesec}
+\setcounter{secnumdepth}{2}       % third-order headings are NOT numbered
+
+% Heading 1: Arial, bold, 12pt, ALL CAPS, left, numbered
+\titleformat{\section}
+  {\arialfont\bfseries\fontsize{12}{14}\selectfont}
+  {\thesection}{0.8em}{\MakeUppercase}
+% Heading 2: Arial, bold, 12pt, left, numbered
+\titleformat{\subsection}
+  {\arialfont\bfseries\fontsize{12}{14}\selectfont}
+  {\thesubsection}{0.8em}{}
+% Heading 3: Arial, italic, 12pt, left, NOT numbered
+\titleformat{\subsubsection}
+  {\arialfont\itshape\fontsize{12}{14}\selectfont}
+  {}{0pt}{}
+\titlespacing*{\section}      {0pt}{12pt}{6pt}
+\titlespacing*{\subsection}   {0pt}{10pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{8pt}{2pt}
+
+% ---------- Captions (Figure/Table Heading: Arial, 12pt, centered, per template) ----------
+\usepackage{caption}
+\DeclareCaptionFont{arial}{\arialfont\fontsize{12}{14}\selectfont}
+\captionsetup{font=arial,labelfont=arial,labelsep=period,%
+              justification=centering,singlelinecheck=true}
+
+% ---------- Abstract: "ABSTRACT" centered, bold, Arial ----------
+\renewenvironment{abstract}{%
+  \begin{center}%
+    {\arialfont\bfseries\fontsize{12}{14}\selectfont ABSTRACT}%
+  \end{center}%
+  \par\noindent\ignorespaces
+}{\par\vspace{6pt}}
+
+% ---------- Keywords command ----------
+\newcommand{\keywords}[1]{\par\noindent{\itshape Keywords}: #1\par\vspace{6pt}}
+
+\begin{document}
+
+%%% TITOLO, AUTORI, AFFILIAZIONE (Title block per template SEEP2026)
+\begin{center}
+  {\arialnarrow\bfseries\fontsize{14}{17}\selectfont
+   \MakeUppercase{CFD-ML-Based Turbulence Model Definition for Fidelity
+   Improvement of Horizontal-Axis Wind Turbine RANS Simulations}\par}
+  \vspace{6pt}
+  {\arialfont\bfseries\fontsize{12}{14}\selectfont Andrea Carloni\textsuperscript{1}\par , Giovanni Delibra\textsuperscript{2}\par, Filippo De Girolamo\textsuperscript{3}\par, Lorenzo Tieghi\textsuperscript{4}\par, Alessandro Corsini\textsuperscript{2}\par, Valerio Francesco Barnabei\textsuperscript{2}\par}
+  \vspace{2pt}
+  {\fontsize{12}{14}\selectfont
+   1.\ Department of Electrical and Energy Engineering, Sapienza University
+   of Rome, Italy; email: andrea.carloni@uniroma1.it\par}
+  {\fontsize{12}{14}\selectfont
+   2.\ Department of Mechanical and Aerospace Engineering, Sapienza University
+   of Rome, Italy; email: giovanni.delibra@uniroma1.it\par}
+  {\fontsize{12}{14}\selectfont
+   3.\ Division of Fluid Mechanics, KTH Royal Institute of Technology, Stockholm, Sweden; email:fidg@kth.se\par}
+  {\fontsize{12}{14}\selectfont
+   4.\ Department of Civil, Environmental and Mechanical Engineering, University of Trento, Trento, Italy; email: lorenzo.tieghi@unitn.it\par}
+
+\end{center}
+\vspace{6pt}
+
+%%%abstract
+\input{abstract/abstract.tex}
+%%%nomenclature
+\input{nomenclature/nomenclature.tex}
+%%%introduction
+\input{introduction/introduction.tex}
+%%%methodology
+\input{methodology/methodology.tex}
+%%%case study
+\input{case_study/case_study.tex}
+%%%results
+\input{results/results.tex}
+%%%conclusions
+\input{conclusions/conclusions.tex}
+
+%%% bibliography
+\bibliographystyle{unsrt}
+\bibliography{bib/ref.bib}
+\end{document}

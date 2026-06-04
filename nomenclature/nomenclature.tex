@@ -1,0 +1,67 @@
+\section*{Nomenclature}
+$\vec{U}$             velocity field [m/s] \\
+$\vec{U}_{cyl}$       velocity field in cylindrical coordinates, $(U_x, U_\theta, U_\rho)$ [m/s] \\
+$U_{ref}$            reference inflow velocity at hub height [m/s] \\
+$U_\theta$           tangential velocity component [m/s] \\
+$U_\rho$             radial velocity component [m/s] \\
+$p$                  kinematic pressure [m$^2$/s$^2$] \\
+$k$                  turbulent kinetic energy [m$^2$/s$^2$] \\
+$D$                  rotor diameter [m] \\
+$z$                  vertical coordinate from the ground [m] \\
+$z_0$                aerodynamic roughness length [m] \\
+$z_{ref}$            reference (hub) height [m] \\
+$x/D,\; z/D$         streamwise and vertical coordinates normalised by the rotor diameter [-] \\
+$S_{ij}$             resolved strain-rate tensor [1/s] \\
+$R_{ij}^{res}$       resolved Reynolds stress tensor [m$^2$/s$^2$] \\
+$Q$                  second invariant of the velocity gradient tensor (Q-criterion) [1/s$^2$] \\
+$\mathbf{R}$         Reynolds stress tensor [m$^2$/s$^2$] \\
+$C_p,\; C_t$         power and thrust coefficients [-] \\
+$\epsilon$           Gaussian projection width of the ALM body force [m] \\
+$\Delta x$           cell size [m] \\
+$\Delta b$           actuator-line element spacing [m] \\
+$\Delta t$           simulation time step [s] \\
+$R^2$                coefficient of determination [-] \\
+$\mathrm{Inertia}$   within-cluster sum of squares (WCSS) minimised by K-means [-] \\
+$K$                  number of clusters [-] \\
+$C_i,\; \mu_i$       set of points and centroid of cluster $i$ [-] \\
+$w_{ax}$             axial sample weight in the NN loss [-] \\
+$n_0,\; n_i,\; r$    initial neuron width, width of layer $i$, width-decay factor [-] \\[6pt]
+$\nu$                molecular kinematic viscosity [m$^2$/s] \\
+$\nu_{eff}$          effective kinematic viscosity, $\nu+\nu_t$ [m$^2$/s] \\
+$\nu_t$              turbulent (eddy) kinematic viscosity [m$^2$/s] \\
+$\nu_{t,\mathrm{RANS}}$ baseline RANS eddy viscosity [m$^2$/s] \\
+$\nu_{t,eq}$         LES-equivalent eddy viscosity (regression target reference) [m$^2$/s] \\
+$\nu_{t,mod}$        modified eddy viscosity reproducing the LES mean fields [m$^2$/s] \\
+$\nu_{t,ML}$         ML-reconstructed eddy viscosity, $\nu_{t,\mathrm{RANS}}+\Delta\nu_{t,ML}$ [m$^2$/s] \\
+$\nu_{sgs}$          subgrid-scale eddy viscosity [m$^2$/s] \\
+$\Delta\nu_t$        eddy-viscosity correction, $\nu_{t,eq}-\nu_{t,\mathrm{RANS}}$ [m$^2$/s] \\
+$\tau_{ij}^{sgs}$    subgrid-scale stress tensor [m$^2$/s$^2$] \\
+$\Sigma_{ij}^{dev}$  deviatoric part of the total turbulent stress tensor [m$^2$/s$^2$] \\
+$\omega$             specific turbulence dissipation rate [1/s] \\
+$\delta$             Huber-loss transition parameter [-] \\[6pt]
+
+\textbf{Acronyms} \\
+ABL                  Atmospheric Boundary Layer \\
+ALM                  Actuator Line Model \\
+CA                   Clustering Algorithm \\
+CFD                  Computational Fluid Dynamics \\
+FIML                 Field Inversion and Machine Learning \\
+GELU                 Gaussian Error Linear Unit \\
+HAWT                 Horizontal-Axis Wind Turbine \\
+LES                  Large Eddy Simulation \\
+MAE                  Mean Absolute Error \\
+ML                   Machine Learning \\
+MLP                  Multi-Layer Perceptron \\
+MSE                  Mean Squared Error \\
+NN                   Neural Network \\
+NREL                 National Renewable Energy Laboratory \\
+PCA                  Principal Component Analysis \\
+PC                   Principal Component \\
+RANS                 Reynolds-Averaged Navier-Stokes \\
+RMSE                 Root Mean Squared Error \\
+SCADA                Supervisory Control And Data Acquisition \\
+SGS                  Subgrid-Scale \\
+SST                  Shear-Stress Transport \\
+WALE                 Wall-Adapting Local Eddy-viscosity \\
+WCSS                 Within-Cluster Sum of Squares \\
+WT                   Wind Turbine \\

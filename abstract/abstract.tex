@@ -1,0 +1,34 @@
+\begin{abstract}
+Accurate prediction of horizontal-axis wind turbine (HAWT) wakes is
+essential for wind farm layout optimisation, energy yield estimation and
+load assessment. Despite that, it remains a major challenge for affordable
+simulation tools. Large Eddy Simulation (LES) reproduces wake physics
+reliably but at a prohibitive computational cost, while unsteady
+Reynolds-Averaged Navier-Stokes (URANS) systematically
+mis-predicts the wake recovery because of the assumptions embedded in the
+eddy-viscosity hypothesis. This work proposes a CFD-ML methodology that
+defines, rather than post-processes, a machine learning-based turbulence
+closure for HAWT wakes for URANS $k$-$\omega$ SST models. From a high-fidelity LES of the NREL-5MW turbine
+operating in a turbulent atmospheric boundary layer (ABL), an LES-equivalent
+eddy-viscosity field $\nu_{t,eq}$ is extracted and used as the reference
+target. A K-means clustering algorithm first segments the flow into
+physically distinct regions, and a Multi-Layer Perceptron (MLP) is then trained
+to predict the local correction $\Delta\nu_t = \nu_{t,eq} -
+\nu_{t,\mathrm{URANS}}$. The resulting closure is embedded directly into a
+modified OpenFOAM PIMPLE solver using the $k$-$\omega$ SST URANS model and evaluated in a fully predictive
+setting on progressively coarser grids. The trained network reproduces
+the LES-equivalent eddy viscosity with a validation coefficient of
+determination $R^2 = 0.9934$, against $R^2 = -7.0$ for the baseline RANS
+field, and the clustering step is shown to improve the reconstruction
+in the near-terrain region. Once embedded in the solver, the ML-based
+RANS model consistently outperforms the standard RANS model in both the
+near- and far-wake. Most notably, on ultra-coarse grids the model
+accurately captures the post-breakdown wake recovery at a computational
+cost about $1.25$ times lower than the reference LES, while also
+reproducing the rotor forces and power coefficients. These results
+indicate that compact, data-driven turbulence closures can deliver
+LES-quality wake predictions at a cost compatible with practical wind
+farm applications.
+\end{abstract}
+
+\keywords{Wind turbine wake, URANS, Machine learning, Turbulence modelling, LES, CFD, Clustering, Neural Networks}

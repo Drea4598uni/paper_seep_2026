@@ -1,0 +1,83 @@
+\section{Conclusions}
+\label{sec:conclusions}
+
+This work presented a CFD-ML methodology to build a turbulence closure aimed at improving the fidelity of
+RANS simulations of HAWT wakes while keeping the
+computational cost compatible with wind farm applications. The ML
+module is used to define the turbulence model itself, by
+learning the eddy-viscosity correction required to reproduce
+high-fidelity LES statistics.
+
+A LES of the NREL-5MW turbine operating in a turbulent atmospheric
+boundary layer was used to generate the reference data. An
+LES-equivalent eddy viscosity $\nu_{t,eq}$ was extracted by projecting
+the deviatoric LES stress onto the Boussinesq form, and a Multi-Layer
+Perceptron was trained to predict the local correction
+$\Delta\nu_t = \nu_{t,eq} - \nu_{t,\mathrm{RANS}}$ with respect to the
+RANS baseline. A K-means clustering algorithm was employed to segment
+the domain into physically distinct flow regions, moving the prediction
+from a cell-wise to a region-aware basis, and the resulting closure was
+embedded into a modified OpenFOAM PIMPLE solver to be used in a fully
+predictive setting. The main findings can be summarised as follows.
+
+\begin{itemize}
+    \item The clustering identified seven physically meaningful flow
+    regions, separating the undisturbed flow from the
+    inlet/ABL-affected, near-wake, mixing/breakdown and far-wake regions,
+    consistently with the underlying flow physics.
+
+    \item The trained network reproduced the LES-equivalent eddy
+    viscosity with a validation $R^2 = 0.9934$
+    ($RMSE = 0.2588$, $MAE = 0.1831$ in physical space), confirming that the learned correction drastically
+    reduces the discrepancy with the LES-equivalent closure.
+
+    \item The comparison with an equivalent network trained without
+    clustering showed that, although the unclustered model attains
+    marginally lower MSE and MAE, its lower $R^2$ reflects a poorer
+    reconstruction of the data variance. The benefit of clustering is
+    most evident in the near-terrain region, where the clustered model
+    is markedly more consistent with the LES reference, since it is able
+    to learn separately the distinct near-wall and free-stream flow
+    regimes.
+
+    \item Once embedded in the solver, the ML-based RANS model
+    consistently outperformed the standard RANS model in both the near-
+    and far-wake. On the fine grid the model strongly improved the
+    near-wake prediction, especially in the upper part of the wake,
+    while slightly underestimating the deficit in the lower near-wake
+    and overestimating it in the far-wake after the wake breakdown.
+
+    \item The most relevant result for practical applications was
+    obtained on the ultra-coarse grids: the model retained its improved
+    near-wake prediction while also accurately reproducing the
+    post-breakdown far-wake recovery, at a computational cost about
+    $1.25$ times lower than the reference LES on the
+    $\sim\!4.2\times10^6$ cells grid. Since downstream turbines are
+    typically located in the far-wake of the upstream machines, this
+    combination of far-wake accuracy and reduced cost is precisely what
+    is required for wind farm layout and energy-yield studies.
+
+    \item Beyond the velocity field, the model also reproduced the rotor
+    forces and the $C_p$/$C_t$ coefficients in good agreement with the
+    reference curves, with only a slight underestimation partly
+    attributable to the more realistic ABL and ground-affected operating
+    conditions, demonstrating its ability to capture the aerodynamic
+    loading and the associated power production.
+\end{itemize}
+
+Some limitations should be acknowledged. The model was trained on a
+single operating condition and on a relatively small dataset, which
+results in a slight overfitting trend and limits its generalisation. A
+residual underestimation bias persists in the far-upstream inflow region,
+inherited from the synthetic inlet boundary condition, and the fine-grid
+configuration still overestimates the far-wake deficit.
+
+Future work will therefore focus on enlarging the training dataset to
+include multiple inflow velocities, turbulence intensities and thermal
+stability conditions, in order to improve the generalisation of the
+closure, and on extending the methodology to multi-turbine
+configurations to assess wake-interaction effects. The compactness and
+the reduced cost of the proposed data-driven closure also make it a
+promising candidate for future real-time wind farm monitoring and
+control applications, where accurate yet inexpensive representations of
+the wake field are essential.

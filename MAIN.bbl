@@ -1,0 +1,160 @@
+\begin{thebibliography}{10}
+
+\bibitem{Porte-Agel2020}
+Fernando Porté-Agel, Majid Bastankhah, and Sina Shamsoddin.
+\newblock Wind-turbine and wind-farm flows: A review.
+\newblock {\em Boundary-Layer Meteorology}, 174, 01 2020.
+
+\bibitem{heck2025unravelingeffectsatmosphericdynamics}
+Kirby~S. Heck and Michael~F. Howland.
+\newblock Unraveling the effects of atmospheric dynamics on wakes with a
+  controlled synthetic inflow methodology, 2025.
+
+\bibitem{GholamiAnjiraki2025}
+Mehrshad Gholami~Anjiraki, Christian Santoni, Samin Shapourmiandouab, Hossein
+  Seyedzadeh, Jonathan Craig, Fotis Sotiropoulos, and Ali Khosronejad.
+\newblock Wind farm layout optimization using a novel machine learning
+  approach, 09 2025.
+
+\bibitem{Steiner2021}
+Julia Steiner, Richard Dwight, and Axelle Vire.
+\newblock Data-driven rans closures for wind turbine wakes under neutral
+  conditions.
+\newblock {\em Computers \& Fluids}, 233:105213, 11 2021.
+
+\bibitem{72116acdc5aa4b3b8fc752f1b2fa9958}
+J.~Steiner.
+\newblock {\em Towards data-driven turbulence modeling for wind turbine wakes}.
+\newblock Dissertation (tu delft), Delft University of Technology, 2023.
+
+\bibitem{Moss2023}
+Coleman Moss, Romit Maulik, Patrick Moriarty, and Giacomo Iungo.
+\newblock Predicting wind farm operations with machine learning and the
+  p2d‐rans model: A case study for an awaken site.
+\newblock {\em Wind Energy}, 27:1245--1267, 10 2023.
+
+\bibitem{Infield2022}
+David Infield, Matilde Santos~Peñas, Davide Astolfi, and Jiarong Hong.
+\newblock Scada data for wind turbine data-driven condition/performance
+  monitoring: A review on state-of-art, challenges and future trends.
+\newblock {\em Wind Engineering}, 47, 09 2022.
+
+\bibitem{YANG2023119240}
+Kun Yang, Xiaowei Deng, Zilong Ti, Shanghui Yang, Senbin Huang, and Yuhang
+  Wang.
+\newblock A data-driven layout optimization framework of large-scale wind farms
+  based on machine learning.
+\newblock {\em Renewable Energy}, 218:119240, 2023.
+
+\bibitem{Duraisamy2019}
+Karthik Duraisamy, Gianluca Iaccarino, and Heng Xiao.
+\newblock Turbulence modeling in the age of data.
+\newblock {\em Annual Review of Fluid Mechanics}, 51, 01 2019.
+
+\bibitem{Ling2016}
+Julia Ling, Andrew Kurzawski, and Jeremy Templeton.
+\newblock Reynolds averaged turbulence modelling using deep neural networks
+  with embedded invariance.
+\newblock {\em Journal of Fluid Mechanics}, 807:155--166, 11 2016.
+
+\bibitem{King_2018}
+R.~N. King, C.~Adcock, J.~Annoni, and K.~Dykes.
+\newblock Data-driven machine learning for wind plant flow modeling.
+\newblock {\em Journal of Physics: Conference Series}, 1037(7):072004, jun
+  2018.
+
+\bibitem{Clustering_tieghi}
+Lorenzo Tieghi, Davide Cerbarano, Filippo De~Girolamo, Valerio Barnabei, and
+  Giovanni Delibra.
+\newblock A novel methodology for the automatic decomposition of hawt wakes
+  with k--means clustering.
+\newblock {\em Wind Energy}, 28, 05 2025.
+
+\bibitem{Carloni2026}
+Andrea Carloni, Giovanni Delibra, Filippo De~Girolamo, Valerio~Francesco
+  Barnabei, and Lorenzo Tieghi.
+\newblock Data-driven decomposition of horizontal-axis wind-turbine wakes.
+\newblock In {\em ASME Turbo Expo 2026}, Milan, Italy, 2026.
+
+\bibitem{10.1115/1.1471361}
+J.~N. Sorensen and W.~Z. Shen.
+\newblock Numerical modeling of wind turbine wakes.
+\newblock {\em Journal of Fluids Engineering}, 124(2):393--399, 05 2002.
+
+\bibitem{turbinesFoam}
+Pete Bachant, Anders Goude, and Martin Wosnik.
+\newblock turbinesfoam.
+\newblock Zenodo, 04 2016.
+
+\bibitem{doi:10.2514/3.12149}
+F.~R. Menter.
+\newblock Two-equation eddy-viscosity turbulence models for engineering
+  applications.
+\newblock {\em AIAA Journal}, 32(8):1598--1605, 1994.
+
+\bibitem{WALE}
+Franck Nicoud and Fr{\'e}d{\'e}ric Ducros.
+\newblock Subgrid-scale stress modelling based on the square of the velocity
+  gradient tensor.
+\newblock {\em Flow, turbulence and Combustion}, 62(3):183--200, 1999.
+
+\bibitem{kaimal}
+J.~C. Kaimal, J.~C. Wyngaard, Y.~Izumi, and O.~R. Coté.
+\newblock Spectral characteristics of surface-layer turbulence.
+\newblock {\em Quarterly Journal of the Royal Meteorological Society},
+  98(417):563--589, 1972.
+
+\bibitem{Davidson2007UsingIS}
+Lars Davidson.
+\newblock Using isotropic synthetic fluctuations as inlet boundary conditions
+  for unsteady simulations.
+\newblock {\em Advances and Applications in Fluid Mechanics}, 1:1--35, 2007.
+
+\bibitem{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
+\bibitem{tensorflow2015-whitepaper}
+Mart\'{i}n Abadi, Ashish Agarwal, Paul Barham, Eugene Brevdo, Zhifeng Chen,
+  Craig Citro, Greg~S. Corrado, Andy Davis, Jeffrey Dean, Matthieu Devin,
+  Sanjay Ghemawat, Ian Goodfellow, Andrew Harp, Geoffrey Irving, Michael Isard,
+  Yangqing Jia, Rafal Jozefowicz, Lukasz Kaiser, Manjunath Kudlur, Josh
+  Levenberg, Dandelion Man\'{e}, Rajat Monga, Sherry Moore, Derek Murray, Chris
+  Olah, Mike Schuster, Jonathon Shlens, Benoit Steiner, Ilya Sutskever, Kunal
+  Talwar, Paul Tucker, Vincent Vanhoucke, Vijay Vasudevan, Fernanda Vi\'{e}gas,
+  Oriol Vinyals, Pete Warden, Martin Wattenberg, Martin Wicke, Yuan Yu, and
+  Xiaoqiang Zheng.
+\newblock {TensorFlow}: Large-scale machine learning on heterogeneous systems,
+  2015.
+\newblock Software available from tensorflow.org.
+
+\bibitem{NREL_5MW}
+Jason Jonkman.
+\newblock Definition of a 5-mw reference wind turbine for offshore system
+  development, 2009.
+
+\bibitem{inproceedings}
+Luis Martínez~Tossas, Stefano Leonardi, Matthew Churchfield, and Patrick
+  Moriarty.
+\newblock A comparison of actuator disk and actuator line wind turbine models
+  and best practices for their use.
+\newblock 01 2012.
+
+\bibitem{alessio5-mw}
+Lorenzo Cappugi, Alessio Castorrini, Aldo Bonfiglioli, Edmondo Minisci, and
+  Sergio Campobasso.
+\newblock Machine learning-enabled prediction of wind turbine energy yield
+  losses due to general blade leading edge erosion.
+\newblock {\em Energy Conversion and Management}, 245:114567, 10 2021.
+
+\bibitem{Troldborg}
+Niels Troldborg, Frederik Zahle, Pierre-Elouan Réthoré, and Niels~N.
+  Sørensen.
+\newblock Comparison of wind turbine wake properties in non-sheared inflow
+  predicted by different computational fluid dynamics rotor models.
+\newblock {\em Wind Energy}, 18(7):1239--1250, 2015.
+
+\end{thebibliography}
