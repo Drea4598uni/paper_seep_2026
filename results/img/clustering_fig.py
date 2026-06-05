@@ -5,13 +5,6 @@ from pathlib import Path
 from PIL import Image
 import scienceplots 
 plt.style.use(['science', 'ieee'])
-# --- SEEP2026 template: force Times New Roman to match the manuscript body ---
-plt.rcParams.update({
-    'text.usetex': False,
-    'font.family': 'serif',
-    'font.serif': ['Times New Roman', 'Nimbus Roman No9 L', 'DejaVu Serif'],
-    'mathtext.fontset': 'stix',
-})
 plt.rcParams['figure.dpi'] = 300
 plt.rcParams['figure.figsize'] = (6, 4)
 plt.rcParams['font.size'] = 18
