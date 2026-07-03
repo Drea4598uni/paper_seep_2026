@@ -1,18 +1,18 @@
 # Fdb version 4
-["bibtex MAIN"] 1782467734.07828 "MAIN.aux" "MAIN.bbl" "MAIN" 1783070431.64247 0
+["bibtex MAIN"] 1783074594.20876 "MAIN.aux" "MAIN.bbl" "MAIN" 1783074617.9227 0
   "./bib/ref.bib" 1779869647.83914 17528 b031bfe83964f73dd8abd6e159d12f34 ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/unsrt.bst" 1291864736 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "MAIN.aux" 1783070413.19562 14303 511a35f6d0a7e283ee80a7ae97cb5289 "xelatex"
+  "MAIN.aux" 1783074598.45238 14303 7eaad0a056df08d280a09d5e4641dd5b "xelatex"
   (generated)
   "MAIN.bbl"
   "MAIN.blg"
   (rewritten before read)
-["xdvipdfmx"] 1783070415.39961 "MAIN.xdv" "MAIN.pdf" "MAIN" 1783070431.67722 0
-  "MAIN.xdv" 1783070413.22282 636084 674c24f1bc4c93a606f477370df29a91 "xelatex"
+["xdvipdfmx"] 1783074600.63888 "MAIN.xdv" "MAIN.pdf" "MAIN" 1783074617.96984 0
+  "MAIN.xdv" 1783074598.47216 636080 743c9c38380b4e0a6536c0c8f7218174 "xelatex"
   (generated)
   "MAIN.pdf"
   (rewritten before read)
-["xelatex"] 1783070409.84902 "MAIN.tex" "MAIN.xdv" "MAIN" 1783070431.64601 0
+["xelatex"] 1783074594.94978 "MAIN.tex" "MAIN.xdv" "MAIN" 1783074617.92625 0
   "C:/Users/andre/AppData/Local/MiKTeX/miktex/data/le/xetex/xelatex.fmt" 1780327097.75307 27042508 f792973831956811ada100bc8b43da36 ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi6.tfm" 1136765053 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -52,8 +52,8 @@
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-math-table.tex" 1691937353 241443 1a7594ad34b6e3e9ee4c5855f2c3ee83 ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-math-xetex.sty" 1691937353 131459 a23c98c9e5ecfc17568c7bc94fda1317 ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-math.sty" 1691937353 1474 b42cfbe849cb22ed1c0632800327884f ""
-  "MAIN.aux" 1783070413.19562 14303 511a35f6d0a7e283ee80a7ae97cb5289 "xelatex"
-  "MAIN.bbl" 1782467734.63419 6684 f7ff7b3bfbb8fcab8b5e0ccc482a768d "bibtex MAIN"
+  "MAIN.aux" 1783074598.45238 14303 7eaad0a056df08d280a09d5e4641dd5b "xelatex"
+  "MAIN.bbl" 1783074594.79722 6684 f7ff7b3bfbb8fcab8b5e0ccc482a768d "bibtex MAIN"
   "MAIN.tex" 1780571654.69137 4963 4100ffef79c117e1a027e0e50a697c6a ""
   "abstract/abstract.tex" 1782904281.80614 2582 94f6ff511af67d65447082091350ec48 ""
   "case_study/case_study.tex" 1782467286.78458 3010 5fd8627367c7b4b37b247159dee271a7 ""
@@ -75,14 +75,14 @@
   "results/img/clustering_result_xy.png" 1782904591.50826 13642 bd9588a8f6a520aeeddba13370788413 ""
   "results/img/clustering_result_xz.png" 1782904590.93783 14961 7aeded25551371e0254e3683d8c331dd ""
   "results/img/elbow_plot.png" 1782904585.4274 56020 528e254cd87eabcf97cdf6c80814a15a ""
-  "results/img/forces_cp_ct.png" 1783068393.0501 164986 1601384fe42c95b48e2a33aab144f80d ""
-  "results/img/forces_profile.png" 1783068394.73867 160814 580b678ea27f8ac5b345232ad9683b04 ""
-  "results/img/ml_results/11ms/deficit/ml_models_comparison/velocity/comparison.png" 1783070377.142 311772 03c55abdac9676472d471534664fa2c7 ""
+  "results/img/forces_cp_ct.png" 1783073984.26783 164986 1601384fe42c95b48e2a33aab144f80d ""
+  "results/img/forces_profile.png" 1783073985.2563 160814 580b678ea27f8ac5b345232ad9683b04 ""
+  "results/img/ml_results/11ms/deficit/ml_models_comparison/velocity/comparison.png" 1783074110.83562 591459 5cc1236b8bb6185ef099d1116f3b5370 ""
   "results/img/ml_results/11ms/error_fields/rans_ml_5m_vs_les/error_U.png" 1783068781.29133 67849 2c8633b4d8982a1420e291ba2ffdc443 ""
   "results/img/ml_results/11ms/error_fields/rans_vs_les/error_U.png" 1783068784.35488 64971 4131594bfee96244c72c15f73f336f40 ""
-  "results/img/ml_results/11ms/integral_deficit_difference.png" 1783070253.01252 166664 4babcb053317157360ef5350b39e3cb3 ""
-  "results/img/ml_results/15ms/integral_deficit_difference.png" 1783070291.47391 152040 7de3eac2b5a6b4e9769365fb00b2183d ""
-  "results/img/ml_results/8ms/integral_deficit_difference.png" 1783070184.42217 177588 498ab25eb70c2b6d8116315bb3657116 ""
+  "results/img/ml_results/11ms/integral_deficit_difference.png" 1783074111.59165 166664 4babcb053317157360ef5350b39e3cb3 ""
+  "results/img/ml_results/15ms/integral_deficit_difference.png" 1783074145.50328 152040 7de3eac2b5a6b4e9769365fb00b2183d ""
+  "results/img/ml_results/8ms/integral_deficit_difference.png" 1783074048.05194 177588 498ab25eb70c2b6d8116315bb3657116 ""
   "results/img/ml_results/bias_points/delta_bias_points_on_y0_slice.png" 1782904643.50633 384590 d48cd8520c1410a197d080423b8079b8 ""
   "results/img/ml_results/bias_points/delta_bias_points_on_y0_slice_no_clustering.png" 1782904653.56491 381667 6d4f31b974fddfa6dfa0cfbc22fa7de9 ""
   "results/img/ml_results/bias_points/delta_scatter_bias_points_highlighted.png" 1782904639.02389 163534 fc6cd22b93f7018d98bd70d8baede7b0 ""

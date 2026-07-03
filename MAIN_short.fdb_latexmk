@@ -1,18 +1,18 @@
 # Fdb version 4
-["bibtex MAIN_short"] 1782905079.11115 "MAIN_short.aux" "MAIN_short.bbl" "MAIN_short" 1783070439.39503 0
+["bibtex MAIN_short"] 1783075161.00255 "MAIN_short.aux" "MAIN_short.bbl" "MAIN_short" 1783075168.20696 0
   "./bib/ref.bib" 1779869647.83914 17528 b031bfe83964f73dd8abd6e159d12f34 ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/unsrt.bst" 1291864736 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "MAIN_short.aux" 1783070435.13309 3560 28c41a1dc7efc27ab28a316c5091e53b "xelatex"
+  "MAIN_short.aux" 1783075163.91574 4112 f987d6b24f97bdcb7c736b02ac9f9a51 "xelatex"
   (generated)
   "MAIN_short.bbl"
   "MAIN_short.blg"
   (rewritten before read)
-["xdvipdfmx"] 1783070436.90061 "MAIN_short.xdv" "MAIN_short.pdf" "MAIN_short" 1783070439.41175 0
-  "MAIN_short.xdv" 1783070435.1386 207864 3002170faf6ddf41f6cdeeae9195ca62 "xelatex"
+["xdvipdfmx"] 1783075165.68843 "MAIN_short.xdv" "MAIN_short.pdf" "MAIN_short" 1783075168.22965 0
+  "MAIN_short.xdv" 1783075163.92086 212004 2626dbb61291ff0a79d779d371f6f1dd "xelatex"
   (generated)
   "MAIN_short.pdf"
   (rewritten before read)
-["xelatex"] 1783070432.69231 "MAIN_short.tex" "MAIN_short.xdv" "MAIN_short" 1783070439.39716 0
+["xelatex"] 1783075161.70906 "MAIN_short.tex" "MAIN_short.xdv" "MAIN_short" 1783075168.20935 0
   "C:/Users/andre/AppData/Local/MiKTeX/miktex/data/le/xetex/xelatex.fmt" 1780327097.75307 27042508 f792973831956811ada100bc8b43da36 ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi6.tfm" 1136765053 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -52,12 +52,12 @@
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-math-table.tex" 1691937353 241443 1a7594ad34b6e3e9ee4c5855f2c3ee83 ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-math-xetex.sty" 1691937353 131459 a23c98c9e5ecfc17568c7bc94fda1317 ""
   "C:/Users/andre/AppData/Local/Programs/MiKTeX/tex/latex/unicode-math/unicode-math.sty" 1691937353 1474 b42cfbe849cb22ed1c0632800327884f ""
-  "MAIN_short.aux" 1783070435.13309 3560 28c41a1dc7efc27ab28a316c5091e53b "xelatex"
-  "MAIN_short.bbl" 1782905079.73332 5627 c2d92a8cbe0eae5303c2450810937078 "bibtex MAIN_short"
-  "MAIN_short.tex" 1782904331.93051 21371 430f8485ca2feb41510c0685d8127a4a ""
-  "results/img/forces_cp_ct.png" 1783068393.0501 164986 1601384fe42c95b48e2a33aab144f80d ""
-  "results/img/forces_profile.png" 1783068394.73867 160814 580b678ea27f8ac5b345232ad9683b04 ""
-  "results/img/ml_results/11ms/deficit/ml_models_comparison/velocity/comparison.png" 1783070377.142 311772 03c55abdac9676472d471534664fa2c7 ""
+  "MAIN_short.aux" 1783075163.91574 4112 f987d6b24f97bdcb7c736b02ac9f9a51 "xelatex"
+  "MAIN_short.bbl" 1783075161.56807 5627 c2d92a8cbe0eae5303c2450810937078 "bibtex MAIN_short"
+  "MAIN_short.tex" 1783075140.7386 22074 94b7de74002dcf9a1bcc15b5bf49bd5a ""
+  "results/img/forces_profile_tangential.png" 1783073985.92748 91646 f5a349968110e147cbd8da4845c4247d ""
+  "results/img/ml_results/11ms/deficit/ml_models_comparison/velocity/comparison.png" 1783074110.83562 591459 5cc1236b8bb6185ef099d1116f3b5370 ""
+  "results/img/ml_results/11ms/integral_deficit_difference.png" 1783074111.59165 166664 4babcb053317157360ef5350b39e3cb3 ""
   (generated)
   "MAIN_short.aux"
   "MAIN_short.log"

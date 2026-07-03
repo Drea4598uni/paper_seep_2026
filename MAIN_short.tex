@@ -107,7 +107,7 @@
 Accurate prediction of horizontal-axis wind turbine (HAWT) wakes is essential
 for wind farm design, yet affordable tools struggle: Large Eddy Simulation (LES)
 is reliable but prohibitively expensive, while unsteady RANS (URANS)
-systematically mis-predicts the wake recovery. This work uses machine learning to define, rather than post-process, a machine learning-based turbulence closure of a $k$-$\omega$ SST RANS solver for HAWT wakes. From a single high-fidelity LES of the NREL-5MW turbine in a turbulent atmospheric boundary layer (ABL), an LES-equivalent eddy viscosity $\nu_{t,eq}$ is extracted as target; a K-means clustering segments the flow and a Multi-Layer Perceptron (MLP) learns the local correction $\Delta\nu_t = \nu_{t,eq} - \nu_{t,\mathrm{RANS}}$. The machine learning models and correction is thend embedded into a modified OpenFOAM PIMPLE solver. By design the closure is calibrated on this single case and transferred without retraining to unseen grids and inflow velocities, the core premise of the method. The network reproduces $\nu_{t,eq}$ with a validation $R^2 = 0.9952$; once embedded, the ML-based RANS model outperforms the standard $k$-$\omega$ SST model in near- and far-wake and, most notably, on ultra-coarse grids captures the post-breakdown recovery at a cost about $1.25$ times lower than the reference LES, while also reproducing the rotor forces and power coefficients.
+systematically mis-predicts the wake recovery. This work uses machine learning to define, rather than post-process, a machine learning-based turbulence closure of a $k$-$\omega$ SST RANS solver for HAWT wakes. From a single high-fidelity LES of the NREL-5MW turbine in a turbulent atmospheric boundary layer (ABL), an LES-equivalent eddy viscosity $\nu_{t,eq}$ is extracted as target; a K-means clustering segments the flow and a Multi-Layer Perceptron (MLP) learns the local correction $\Delta\nu_t = \nu_{t,eq} - \nu_{t,\mathrm{RANS}}$. The machine learning models and correction is thend embedded into a modified OpenFOAM PIMPLE solver. By design the closure is calibrated on this single case and transferred without retraining to unseen grids and inflow velocities, the core premise of the method. The network reproduces $\nu_{t,eq}$ with a validation $R^2 = 0.9952$; once embedded, the ML-RANS model outperforms the standard $k$-$\omega$ SST model in near- and far-wake and, most notably, on ultra-coarse grids captures the post-breakdown recovery at a cost about $1.25$ times lower than the reference LES, while also reproducing the rotor forces and power coefficients.
 \end{abstract}
 
 \keywords{Wind turbine wake, URANS, Machine learning, Turbulence modelling}
@@ -177,50 +177,66 @@ The clustering identifies a clear elbow at $K=7$, separating the undisturbed flo
 
 The MLP (trained at $U_\infty = 11.4\,\mathrm{m/s}$) reaches its best checkpoint at epoch 220. In physical space the reconstructed field attains $R^2 = 0.9954$ on training and $R^2 = 0.9952$ ($RMSE = 0.2635$, $MAE = 0.1797$) on validation. A residual underestimation bias persists only in the inlet region, where the synthetic boundary condition introduces numerical instabilities. An equivalent network trained without clustering attains slightly worse metrics across the board ($R^2 = 0.9950$, with higher $RMSE$/$MAE$). This aggregate gap is small only because the metrics are dominated by the large free-stream region; the benefit of clustering is concentrated in the near-terrain region, where the clustered model is markedly more consistent with the LES reference, and in the interpretability and case- and mesh-robustness it adds.
 
-The trained model is embedded in the RANS solver and evaluated across grids of different resolution. As shown in Fig.~\ref{fig:velocity_deficit}, on the fine grid ($\sim$15.9~M cells) the ML-based RANS model consistently outperforms the standard RANS model, especially in the upper near-wake where the standard model underestimates the deficit; a moderate underestimation persists in the lower near-wake, while the far-wake (after breakdown, from $4D$) is slightly overestimated. The most relevant result is obtained on the ultra-coarse grids: the model retains its improved near-wake prediction while also providing a much more accurate far-wake, including the post-breakdown recovery that is critical to estimate the power production of downstream turbines. This is achieved at a reduced cost: on the $\sim$4.2~M cells grid the ML-based RANS model is about $1.25$ times cheaper than the reference LES, making it a viable tool for large-scale wind farm simulations.
+The trained model is embedded in the RANS solver and evaluated across grids of different resolution. As shown in Fig.~\ref{fig:velocity_deficit}, on the fine grid ($\sim$15.9~M cells) the ML-RANS model consistently outperforms the standard RANS model, especially in the upper near-wake where the standard model underestimates the deficit; a moderate underestimation persists in the lower near-wake, while the far-wake (after breakdown, from $4D$) is slightly overestimated. The most relevant result is obtained on the ultra-coarse grids: the model retains its improved near-wake prediction while also providing a much more accurate far-wake, including the post-breakdown recovery that is critical to estimate the power production of downstream turbines. This is achieved at a reduced cost: on the $\sim$4.2~M cells grid the ML-RANS model is about $1.25$ times cheaper than the reference LES, making it a viable tool for large-scale wind farm simulations.
 
 Consistently with its single-case-to-many premise, the closure transfers to the
 unseen $8$ and $15\,\mathrm{m/s}$ conditions: a scalar metric based on the signed
 integral of the velocity-deficit difference with respect to the LES shows that, at
 all three inflow velocities, the standard RANS model systematically overestimates
-the wake deficit, whereas every RANS-ML configuration stays close to the LES
+the wake deficit, whereas every ML-RANS configuration stays close to the LES
 reference throughout the wake. This out-of-sample transfer, rather than the
 single-case fit, is the central result of the study.
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=\textwidth]{results/img/ml_results/11ms/deficit/ml_models_comparison/velocity/comparison.png}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{results/img/ml_results/11ms/deficit/ml_models_comparison/velocity/comparison.png}
+        \caption{}
+        \label{fig:velocity_deficit_panels}
+    \end{subfigure}
+
+    \begin{subfigure}{0.42\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{results/img/ml_results/11ms/integral_deficit_difference.png}
+        \caption{}
+        \label{fig:velocity_deficit_integral}
+    \end{subfigure}
     \caption{Velocity deficit for the 11.4\,m/s inflow condition along the $x$-axis at different streamwise distances
-    from the rotor, for the ML-based RANS model on grids of different resolution,
-    compared with the standard RANS model and the LES reference.}
+    from the rotor, for the ML-RANS model on grids of different resolution,
+    compared with the standard RANS model and the LES reference: (a) deficit profiles at successive
+    streamwise stations; (b) signed integral of the velocity-deficit difference with respect to the
+    LES reference as a function of the streamwise distance.}
     \label{fig:velocity_deficit}
 \end{figure*}
 
 To assess the dynamic effects on the turbine and the associated power production,
-the predicted forces and the $C_p$/$C_t$ coefficients are reported in
-Fig.~\ref{fig:forces}. They show good agreement with the reference curves, with a
+the predicted tangential force is reported in
+Fig.~\ref{fig:forces} and the $C_p$/$C_t$ coefficients in Tab.~\ref{tab:forces_coeff}. They show good agreement with the reference curves, with a
 slight underestimation partly attributable to the fact that the reference refers
-to an isolated turbine, whereas the ML-based RANS model operates in a turbulent
+to an isolated turbine, whereas the ML-RANS model operates in a turbulent
 ABL affected by the ground. Overall, the model reproduces not only the velocity
 wake field but also the aerodynamic loading and power production, a key
 requirement for wind farm applications.
 
-\begin{figure}[t]
+\begin{table}[t]
     \centering
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{results/img/forces_cp_ct.png}
-        \caption{}
-        \label{fig:cp_ct_profile}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{results/img/forces_profile.png}
-        \caption{}
-        \label{fig:forces_profile}
-    \end{subfigure}
-    \caption{ML-based RANS model results: (a) $C_p$ and $C_t$ profiles, (b) force profiles.}
+    \begin{tabular}{l c c}
+        \hline
+         & ML-RANS & Reference~\cite{NREL_5MW} \\
+        \hline
+        $C_p$ & 0.448 & 0.490 \\
+        $C_t$ & 0.064 & 0.068 \\
+        \hline
+    \end{tabular}
+    \caption{Predicted power ($C_p$) and thrust ($C_t$) coefficients at the reference inflow condition, compared with the reference.}
+    \label{tab:forces_coeff}
+\end{table}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{results/img/forces_profile_tangential.png}
+    \caption{Tangential force profile predicted by the ML-RANS model, compared with the reference of Troldborg et al. (2015).}
     \label{fig:forces}
 \end{figure}
 
@@ -236,7 +252,7 @@ and an MLP learned the eddy-viscosity correction
 $\Delta\nu_t = \nu_{t,eq}-\nu_{t,\mathrm{RANS}}$, embedded into a modified
 OpenFOAM PIMPLE solver. The network reproduced the LES-equivalent closure with a
 validation $R^2 = 0.9952$, and clustering proved decisive in the near-terrain
-region. Once embedded, the ML-based RANS model consistently outperformed the
+region. Once embedded, the ML-RANS model consistently outperformed the
 standard RANS model in both near- and far-wake; most notably, on ultra-coarse
 grids it accurately reproduced the post-breakdown far-wake recovery at a cost
 about $1.25$ times lower than the reference LES, while also reproducing the rotor

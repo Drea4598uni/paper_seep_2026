@@ -170,8 +170,9 @@ def build_comparison_image(velocity_dir):
     top_cols = (n + 1) // 2
     bottom_cols = n - top_cols
     max_cols = max(top_cols, bottom_cols, 1)
-    fig = plt.figure(figsize=(15, 3), dpi=300)
-    gs = GridSpec(2, max_cols, figure=fig, hspace=0.005, wspace=0.02)
+    # aspect chosen so the (landscape) panels fill their cells with little white space
+    fig = plt.figure(figsize=(15, 5), dpi=300)
+    gs = GridSpec(2, max_cols, figure=fig, hspace=0.0, wspace=0.0)
 
     top_start = (max_cols - top_cols) // 2
     top_axes = [fig.add_subplot(gs[0, top_start + i]) for i in range(top_cols)]
@@ -240,8 +241,8 @@ for case in cc.CASES:
                 plot_velocity_deficit(label, sampled[label], velocity_field, uref)
             plt.xlabel(r"$\Delta U / U_\infty$")
             plt.ylabel("z/D")
-            if i == 0.25:
-                plt.legend()
+            if i == x[-1]:
+                plt.legend(fontsize=11, loc="upper right")
             plt.title(f"x/D={i}")
             plt.savefig(velocity_dir / f"velocity_deficit_x_{i}D.png", bbox_inches='tight')
             plt.close()
