@@ -1,11 +1,13 @@
+import sys
 from pathlib import Path
 
 import numpy as np
 import pyvista as pv
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import case_config as cc
 
-OUTPUT_ROOT = Path("results/img/ml_results/error_fields")
-OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
+OUTPUT_ROOT = Path("results/img/ml_results")
 
 VARIABLES = ("U", "k")
 COLOR_PERCENTILES = (5, 95)
@@ -140,32 +142,6 @@ def plot_error_mesh(mesh, error_name, output_path, title):
     plotter.close()
 
 
-cases = {
-    "RANS-ML 15M": read_case(
-        [
-            "dataset/risultati_solver/yNormal_15ml.vtp",
-            "dataset/risultati_solver/zNormal_15ml.vtp",
-        ],
-        "U",
-    ),
-    "RANS-ML 10M": read_case(
-        [
-            "dataset/risultati_solver/yNormal_10ml.vtp",
-            "dataset/risultati_solver/zNormal_10ml.vtp",
-        ],
-        "U",
-    ),
-    "RANS-ML 5M": read_case(
-        [
-            "dataset/risultati_solver/yNormal_5ml.vtp",
-            "dataset/risultati_solver/zNormal_5ml.vtp",
-        ],
-        "U",
-    ),
-    "RANS": read_case(["dataset/riferimento rans/yNormal.vtp"], "U"),
-    "LES": read_case(["dataset/les_reference/les_mesh_with_k.vtp"], "UMean"),
-}
-
 comparisons = [
     ("RANS-ML 15M", "LES"),
     ("RANS-ML 10M", "LES"),
@@ -177,14 +153,33 @@ comparisons = [
 ]
 
 
-for target_label, reference_label in comparisons:
-    target_case = cases[target_label]
-    reference_case = cases[reference_label]
-    comparison_dir = OUTPUT_ROOT / f"{safe_name(target_label)}_vs_{safe_name(reference_label)}"
-    comparison_dir.mkdir(parents=True, exist_ok=True)
+def build_cases(case):
+    les_paths, les_field, les_has_k = cc.les_ref(case)
+    cases = {
+        "RANS-ML 15M": read_case(cc.solver_meshes(case, "RANS-ML 15M"), "U"),
+        "RANS-ML 10M": read_case(cc.solver_meshes(case, "RANS-ML 10M"), "U"),
+        "RANS-ML 5M": read_case(cc.solver_meshes(case, "RANS-ML 5M"), "U"),
+        "RANS": read_case(cc.rans_ref_meshes(case), "U"),
+        "LES": read_case(les_paths, les_field),
+    }
+    return cases, les_has_k
 
-    for variable in VARIABLES:
-        mesh, error_name = add_error_field(target_case, reference_case, variable)
-        output_path = comparison_dir / f"error_{variable}.png"
-        title = f"{target_label} vs {reference_label} - {variable} error [%]"
-        plot_error_mesh(mesh, error_name, output_path, title)
+
+for case in cc.CASES:
+    cases, les_has_k = build_cases(case)
+    case_root = OUTPUT_ROOT / case / "error_fields"
+
+    for target_label, reference_label in comparisons:
+        target_case = cases[target_label]
+        reference_case = cases[reference_label]
+        comparison_dir = case_root / f"{safe_name(target_label)}_vs_{safe_name(reference_label)}"
+        comparison_dir.mkdir(parents=True, exist_ok=True)
+
+        for variable in VARIABLES:
+            # the LES reference at 15 m/s has no k field
+            if variable == "k" and reference_label == "LES" and not les_has_k:
+                continue
+            mesh, error_name = add_error_field(target_case, reference_case, variable)
+            output_path = comparison_dir / f"error_{variable}.png"
+            title = f"{target_label} vs {reference_label} - {variable} error [%]"
+            plot_error_mesh(mesh, error_name, output_path, title)

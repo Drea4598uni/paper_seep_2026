@@ -84,9 +84,9 @@ INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi12.tf
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi8.tfm
 INPUT C:\Users\andre\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi6.tfm
 OUTPUT MAIN_short.xdv
-INPUT .\results\img\ml_results\deficit\ml_models_comparison\velocity\comparison.png
-INPUT .\results\img\ml_results\deficit\ml_models_comparison\velocity\comparison.png
-INPUT .\results\img\ml_results\deficit\ml_models_comparison\velocity\comparison.png
+INPUT .\results\img\ml_results\11ms\deficit\ml_models_comparison\velocity\comparison.png
+INPUT .\results\img\ml_results\11ms\deficit\ml_models_comparison\velocity\comparison.png
+INPUT .\results\img\ml_results\11ms\deficit\ml_models_comparison\velocity\comparison.png
 INPUT .\results\img\forces_cp_ct.png
 INPUT .\results\img\forces_cp_ct.png
 INPUT .\results\img\forces_cp_ct.png

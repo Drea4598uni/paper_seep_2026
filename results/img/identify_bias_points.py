@@ -1,8 +1,6 @@
 import os
 
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-from matplotlib.path import Path
 import numpy as np
 import pandas as pd
 import pyvista as pv
@@ -34,38 +32,29 @@ plt.rcParams['xtick.top'] = False
 plt.rcParams['ytick.right'] = False
 
 
-DATASET = r"dataset\risultati rete\output_seep_nuovi\results\rans_with_predictions.vtp"
+# Datasets processed: (predictions file, output-name suffix). The no-clustering
+# case reuses the same metric and produces the *_no_clustering.png figures used
+# in the manuscript.
+DATASETS = [
+    (r"dataset\risultati_rete\output_seep_con_clustering_11ms\results\rans_with_predictions.vtu", ""),
+    (r"dataset\risultati_rete_noclustering\output_seep_\results\rans_with_predictions.vtu", "_no_clustering"),
+]
 OUTPUT_DIR = r"results\img\ml_results\bias_points"
 
 ROTOR_DIAMETER = 126.0
 
-# Bias definition in the delta scatter plot:
-# x = true delta_nut = nutEq - nut, y = predicted delta_nut = delta_pred.
-# Change these four points to move the trapezoid used for the selection.
-BIAS_POLYGON = np.array(
-    [
-        [-29.0, -35.0],
-        [20.0, -35.0],
-        [20.0, -35.0],
-        [20.0, 15.0],
-    ]
-)
+# --- Standard bias metric -------------------------------------------------
+# A point belongs to the bias region when the reconstructed eddy viscosity is
+# UNDERESTIMATED by more than BIAS_REL_THRESHOLD relative to the true value, i.e.
+#       nut_pred < nut_eq   and   |nut_pred - nut_eq| / |nut_eq| > BIAS_REL_THRESHOLD .
+# Because nut_pred = nut + delta_pred and nut_eq = nut + delta_true, the absolute
+# reconstruction error of nut and of delta_nut is identical; the SAME mask is
+# therefore used for both the nut and the delta-nut scatter plots, so the two
+# selected populations coincide exactly. Near-zero true values are excluded
+# (BIAS_MIN_TRUE) because the relative error is not meaningful there.
+BIAS_REL_THRESHOLD = 0.9      # 90 % relative underestimation
+BIAS_MIN_TRUE = 1.0           # ignore |nut_eq| below this value [m^2/s]
 
-# Bias definition in the normal nut scatter plot:
-# x = true nutEq, y = predicted nut_pred.
-NUT_BIAS_POLYGON = np.array(
-    [
-        [3.0, -1.0],
-        [42.0, -1.0],
-        [42.0, -1.0],
-        [42.0, 38.0],
-    ]
-)
-
-# Slice used for the field plot.
-SLICE_AXIS = "y"
-SLICE_VALUE = 0.0
-SLICE_TOLERANCE = 1e-9
 FIELD_TO_PLOT = "nutEq"
 FIELD_LABEL = r"$\nu_{t,eq}$"
 DELTA_SCATTER_X_LABEL = r"True $\Delta \nu_t$"
@@ -73,16 +62,32 @@ DELTA_SCATTER_Y_LABEL = r"Predicted $\Delta \nu_{t,ML}$"
 NUT_SCATTER_X_LABEL = r"True $\nu_{t,eq}$"
 NUT_SCATTER_Y_LABEL = r"Predicted $\nu_{t,ML}$"
 
+# Slice used for the field plot.
+SLICE_AXIS = "y"
+SLICE_VALUE = 0.0
+SLICE_TOLERANCE = 1e-9
+
 
 def axis_index(axis_name):
     return {"x": 0, "y": 1, "z": 2}[axis_name.lower()]
 
 
+def bias_mask_from_error(nut_eq, nut_pred):
+    """Single, metric-based selection of the bias (underestimation) region."""
+    abs_error = nut_pred - nut_eq
+    with np.errstate(divide="ignore", invalid="ignore"):
+        rel_error = np.abs(abs_error) / np.abs(nut_eq)
+    return (abs_error < 0) & (rel_error > BIAS_REL_THRESHOLD) & (np.abs(nut_eq) > BIAS_MIN_TRUE)
+
+
 def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    for dataset, suffix in DATASETS:
+        process_dataset(dataset, suffix)
 
-    mesh = pv.read(DATASET)
-    points = mesh.points
+
+def process_dataset(dataset, suffix):
+    mesh = pv.read(dataset)
 
     nut_base = np.asarray(mesh["nut"])
     nut_eq = np.asarray(mesh["nutEq"])
@@ -93,95 +98,40 @@ def main():
     with np.errstate(divide="ignore", invalid="ignore"):
         relative_error = (delta_pred - delta_true) / delta_true
 
-    scatter_points = np.column_stack([delta_true, delta_pred])
-    bias_mask = Path(BIAS_POLYGON).contains_points(scatter_points, radius=1e-12)
-
-    nut_scatter_points = np.column_stack([nut_eq, nut_pred])
-    nut_bias_mask = Path(NUT_BIAS_POLYGON).contains_points(nut_scatter_points, radius=1e-12)
-
+    # one mask, shared by the nut and the delta-nut views
+    bias_mask = bias_mask_from_error(nut_eq, nut_pred)
     bias_idx = np.where(bias_mask)[0]
-    nut_bias_idx = np.where(nut_bias_mask)[0]
 
-    table = pd.DataFrame(
-        {
-            "point_index": bias_idx,
-            "x": points[bias_mask, 0],
-            "y": points[bias_mask, 1],
-            "z": points[bias_mask, 2],
-            "x_D": points[bias_mask, 0] / ROTOR_DIAMETER,
-            "y_D": points[bias_mask, 1] / ROTOR_DIAMETER,
-            "z_D": points[bias_mask, 2] / ROTOR_DIAMETER,
-            "nut": nut_base[bias_mask],
-            "nutEq_true": nut_eq[bias_mask],
-            "nut_pred": nut_pred[bias_mask],
-            "delta_nut_true": delta_true[bias_mask],
-            "delta_nut_pred": delta_pred[bias_mask],
-            "delta_error": delta_pred[bias_mask] - delta_true[bias_mask],
-            "relative_error": relative_error[bias_mask],
-        }
+    table = build_points_table(
+        mesh, bias_mask, bias_idx, nut_base, nut_eq, nut_pred,
+        delta_true, delta_pred, relative_error,
     )
+    delta_csv_path = os.path.join(OUTPUT_DIR, f"delta_bias_points_coordinates{suffix}.csv")
+    nut_csv_path = os.path.join(OUTPUT_DIR, f"nut_bias_points_coordinates{suffix}.csv")
+    table.to_csv(delta_csv_path, index=False)
+    table.to_csv(nut_csv_path, index=False)
 
-    for optional_field in ["ID", "ax", "theta", "z_original", "ax_d", "z_d"]:
-        if optional_field in mesh.point_data:
-            values = np.asarray(mesh[optional_field])
-            if values.ndim == 1:
-                table[optional_field] = values[bias_mask]
-
-    csv_path = os.path.join(OUTPUT_DIR, "delta_bias_points_coordinates.csv")
-    table.to_csv(csv_path, index=False)
-
-    nut_table = build_points_table(
-        mesh,
-        nut_bias_mask,
-        nut_bias_idx,
-        nut_base,
-        nut_eq,
-        nut_pred,
-        delta_true,
-        delta_pred,
-        relative_error,
-    )
-    nut_csv_path = os.path.join(OUTPUT_DIR, "nut_bias_points_coordinates.csv")
-    nut_table.to_csv(nut_csv_path, index=False)
-
-    scatter_path = os.path.join(OUTPUT_DIR, "delta_scatter_bias_points_highlighted.png")
+    scatter_path = os.path.join(OUTPUT_DIR, f"delta_scatter_bias_points_highlighted{suffix}.png")
     plot_scatter(
-        delta_true,
-        delta_pred,
-        bias_mask,
-        BIAS_POLYGON,
-        DELTA_SCATTER_X_LABEL,
-        DELTA_SCATTER_Y_LABEL,
-        r"Selected $\Delta \nu_t$ points",
-        scatter_path,
+        delta_true, delta_pred, bias_mask,
+        DELTA_SCATTER_X_LABEL, DELTA_SCATTER_Y_LABEL,
+        r"Selected $\Delta \nu_t$ points", scatter_path,
     )
 
-    nut_scatter_path = os.path.join(OUTPUT_DIR, "nut_scatter_bias_points_highlighted.png")
+    nut_scatter_path = os.path.join(OUTPUT_DIR, f"nut_scatter_bias_points_highlighted{suffix}.png")
     plot_scatter(
-        nut_eq,
-        nut_pred,
-        nut_bias_mask,
-        NUT_BIAS_POLYGON,
-        NUT_SCATTER_X_LABEL,
-        NUT_SCATTER_Y_LABEL,
-        r"Selected $\nu_t$ points",
-        nut_scatter_path,
+        nut_eq, nut_pred, bias_mask,
+        NUT_SCATTER_X_LABEL, NUT_SCATTER_Y_LABEL,
+        r"Selected $\nu_t$ points", nut_scatter_path,
     )
 
-    slice_path = os.path.join(OUTPUT_DIR, f"delta_bias_points_on_{SLICE_AXIS}{SLICE_VALUE:g}_slice.png")
+    slice_path = os.path.join(OUTPUT_DIR, f"delta_bias_points_on_{SLICE_AXIS}{SLICE_VALUE:g}_slice{suffix}.png")
     plot_slice(mesh, bias_mask, slice_path)
 
-    nut_slice_path = os.path.join(OUTPUT_DIR, f"nut_bias_points_on_{SLICE_AXIS}{SLICE_VALUE:g}_slice.png")
-    plot_slice(mesh, nut_bias_mask, nut_slice_path)
+    nut_slice_path = os.path.join(OUTPUT_DIR, f"nut_bias_points_on_{SLICE_AXIS}{SLICE_VALUE:g}_slice{suffix}.png")
+    plot_slice(mesh, bias_mask, nut_slice_path)
 
-    print(f"Selected bias points: {len(bias_idx)}")
-    print(f"Coordinates written to: {csv_path}")
-    print(f"Scatter check written to: {scatter_path}")
-    print(f"Slice plot written to: {slice_path}")
-    print(f"Selected nut bias points: {len(nut_bias_idx)}")
-    print(f"Nut coordinates written to: {nut_csv_path}")
-    print(f"Nut scatter check written to: {nut_scatter_path}")
-    print(f"Nut slice plot written to: {nut_slice_path}")
+    print(f"[{dataset}] selected bias points: {len(bias_idx)} (of {mesh.n_points})")
 
 
 def build_points_table(
@@ -224,7 +174,7 @@ def build_points_table(
     return table
 
 
-def plot_scatter(x_values, y_values, bias_mask, bias_polygon, xlabel, ylabel, selected_label, output_path):
+def plot_scatter(x_values, y_values, bias_mask, xlabel, ylabel, selected_label, output_path):
     plt.figure(figsize=(6, 4), dpi=300)
     plt.scatter(x_values, y_values, alpha=0.5, c="black", label="Predicted vs True", s=1)
     plt.scatter(
@@ -238,17 +188,6 @@ def plot_scatter(x_values, y_values, bias_mask, bias_polygon, xlabel, ylabel, se
 
     lims = [min(x_values.min(), y_values.min()), max(x_values.max(), y_values.max())]
     plt.plot(lims, lims, "r--", label="Ideal Fit")
-    plt.gca().add_patch(
-        mpatches.Polygon(
-            bias_polygon,
-            closed=True,
-            facecolor="none",
-            edgecolor="blue",
-            linestyle="--",
-            linewidth=1.2,
-            # label="Bias Region",
-        )
-    )
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.legend(frameon=False)
@@ -302,8 +241,6 @@ def plot_slice(mesh, bias_mask, output_path):
     plt.axis("equal")
     plt.legend(frameon=False, loc="best")
     plt.tight_layout()
-    # plt.xlim(-5, 15)
-    # plt.ylim(0, 8)
     plt.savefig(output_path, bbox_inches="tight")
     plt.close()
 

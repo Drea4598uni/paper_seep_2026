@@ -31,12 +31,12 @@ plt.rcParams['axes.spines.right'] = False
 plt.rcParams['xtick.top'] = False
 plt.rcParams['ytick.right'] = False
 
-path = 'dataset\\risultati rete\\output_seep_nuovi\\results\\rans_with_predictions.vtp'
+path = 'dataset\\risultati_rete\\output_seep_con_clustering_11ms\\results\\rans_with_predictions.vtu'
 mesh = pv.read(path)
 rotor_diameter = 126.0
 mesh.points = mesh.points / rotor_diameter
 
-rans_reference_path = 'dataset\\riferimento rans\\yNormal.vtp'
+rans_reference_path = 'dataset\\ref_rans\\yNormal_11ms.vtp'
 rans_reference_mesh = pv.read(rans_reference_path)
 rans_reference_mesh.points = rans_reference_mesh.points / rotor_diameter
 
@@ -160,7 +160,7 @@ for field_mesh, scalars, title, output_path in fields:
 
 
 # Load the dataset
-dataset = "dataset\\risultati rete\\output_seep_nuovi\\results\\rans_with_predictions.vtp"
+dataset = "dataset\\risultati_rete\\output_seep_con_clustering_11ms\\results\\rans_with_predictions.vtu"
 data = pv.read(dataset)
 
 # Fields saved by the training script:
@@ -206,7 +206,7 @@ plt.savefig("results/img/NN_delta_scatter_plot.png", bbox_inches='tight')
 plt.close()
 
 # plot train val loss curves
-path = "dataset\\risultati rete\\output_seep_nuovi\\results\\training_history_nut.csv"
+path = "dataset\\risultati_rete\\output_seep_con_clustering_11ms\\results\\training_history_nut.csv"
 datas = pd.read_csv(path)
 datas.plot(y=["loss", "val_loss"], logy=True, use_index=True)
 plt.xlabel("Epoch")

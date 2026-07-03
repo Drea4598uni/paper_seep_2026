@@ -2,8 +2,8 @@ import pyvista as pv
 import numpy as np
 from scipy.spatial import cKDTree
 
-les = pv.read(r"D:\File uni\Dottorato\NUT_regression\dataset\les_reference\les_mesh_with_k.vtp")
-rans = pv.read(r"D:\File uni\Dottorato\NUT_regression\dataset\clustering su simplefoam_corretto\nuovi\0-NC_7final.vtp")
+les = pv.read(r"D:\File uni\Dottorato\NUT_regression\dataset\ref_les\les_mesh_with_k.vtp")
+rans = pv.read(r"D:\File uni\Dottorato\NUT_regression\dataset\clustering _simpleFoam_corretto\0-NC_7final.vtu")
 
 tree = cKDTree(les.points)
 dist, idx = tree.query(rans.points, k=1)
@@ -16,4 +16,4 @@ rans["omega_les"] = les["omega"][idx]
 rans["k_sgs_les"] = les["k_sgs"][idx]
 rans["k_res_les"] = les["k_res"][idx]
 rans["nutEq"] = les["nutEq"][idx]
-rans.save(r"D:\File uni\Dottorato\NUT_regression\dataset\dati_per_rete\rans_mesh_with_les_data_.vtp")
+rans.save(r"D:\File uni\Dottorato\NUT_regression\dataset\dati_per_rete\rans_mesh_with_les_data_.vtu")

@@ -33,7 +33,7 @@ plt.rcParams['xtick.top'] = False
 plt.rcParams['ytick.right'] = False
 
 # Load the data
-data = pv.read("dataset/risultati rete/output_seep_no_clustering_train_ax_ge_m2p5/results/rans_with_predictions.vtp")
+data = pv.read("dataset/risultati_rete_noclustering/output_seep_/results/rans_with_predictions.vtu")
 
 # Fields saved by the training script:
 # - nut: reference viscosity used as the baseline in the reconstruction
@@ -78,7 +78,7 @@ plt.savefig("results/img/NN_delta_scatter_plot_no_clustering.png", bbox_inches='
 plt.close()
 
 # plot train val loss curves
-path = "dataset\\risultati rete\\output_seep_no_clustering_train_ax_ge_m2p5\\results\\training_history_nut.csv"
+path = "dataset\\risultati_rete_noclustering\\output_seep_\\results\\training_history_nut.csv"
 datas = pd.read_csv(path)
 datas.plot(y=["loss", "val_loss"], logy=True, use_index=True)
 plt.xlabel("Epoch")
@@ -104,12 +104,12 @@ plt.legend(["Training RMSE", "Validation RMSE"])
 plt.savefig("results/img/NN_RMSE_curves_no_clustering.png", bbox_inches='tight')
 plt.close()
 
-path = 'dataset\\risultati_solver\\yNormal.vtp'
+path = 'dataset\\risultati_solver\\11ms\\yNormal_noClustering.vtp'
 mesh = pv.read(path)
 rotor_diameter = 126.0
 mesh.points = mesh.points / rotor_diameter
 
-rans_reference_path = 'dataset\\riferimento rans\\yNormal.vtp'
+rans_reference_path = 'dataset\\ref_rans\\yNormal_11ms.vtp'
 rans_reference_mesh = pv.read(rans_reference_path)
 rans_reference_mesh.points = rans_reference_mesh.points / rotor_diameter
 

@@ -1,9 +1,12 @@
+import sys
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 from pathlib import Path
 from PIL import Image
-import scienceplots 
+import scienceplots
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import case_config as cc
 plt.style.use(['science', 'ieee'])
 plt.rcParams['figure.dpi'] = 300
 plt.rcParams['figure.figsize'] = (6, 4)
@@ -23,7 +26,7 @@ plt.rcParams['xtick.top'] = False
 plt.rcParams['ytick.right'] = False
 
 ### elbow plot
-elbow_df = pd.read_csv(Path('dataset') / 'clustering su simplefoam_corretto' / 'nuovi' /'elbow.csv')
+elbow_df = pd.read_csv(cc.CLUSTER_ELBOW)
 NC = elbow_df['NC']
 inertia = elbow_df['Inertia']
 
@@ -38,8 +41,8 @@ plt.savefig(Path('results') / 'img' / 'elbow_plot.png', bbox_inches='tight')
 plt.close()
 
 ### PCA plot
-pca_df = pd.read_csv(Path('dataset') / 'clustering su simplefoam_corretto' / 'nuovi' / 'pca_explained_variance_ratio0PCA-Cyl-normalizedOriginalFeats.csv')
-PCs = pca_df['PCs']
+pca_df = pd.read_csv(cc.CLUSTER_PCA_VARIANCE)
+PCs = pca_df.iloc[:, 0]
 explained_variance_ratio = pca_df['Explained Variance Ratio']
 x_pcs = range(1, len(PCs) + 1)
 cumulative_explained_variance_ratio = []
@@ -78,7 +81,7 @@ dict = {
     'theta': r'$\theta$'
 }
 
-features_weights_df = pd.read_csv(Path('dataset') / 'clustering su simplefoam_corretto' / 'nuovi' / 'pca_importance0PCA-Cyl-normalizedOriginalFeats.csv')
+features_weights_df = pd.read_csv(cc.CLUSTER_PCA_IMPORTANCE)
 features = [features_weights_df.columns[i] for i in range(0, len(features_weights_df.columns))]
 weights = features_weights_df[features].values
 plt.figure()
@@ -93,7 +96,7 @@ plt.close()
 ### plot clustering results
 import pyvista as pv
 
-path = 'dataset/clustering su simplefoam_corretto/nuovi/rans_mesh.vtp'
+path = cc.CLUSTER_MESH
 mesh = pv.read(path)
 rotor_diameter = 126.0
 mesh.points = mesh.points / rotor_diameter
@@ -188,8 +191,8 @@ plotter_3.screenshot(Path('results') / 'img' / 'clustering_result_legend.png')
 plotter_3.close()
 
 ### plot nut fields with the same visual style
-prediction_path = Path('dataset') / 'risultati rete' / 'output_seep_nuovi' / 'results' / 'rans_with_predictions.vtp'
-rans_path = Path('dataset') / 'clustering su simplefoam_corretto' / 'nuovi' / 'rans_mesh.vtp'
+prediction_path = cc.PRED_CLU
+rans_path = cc.CLUSTER_RANS_MESH
 
 prediction_mesh = pv.read(prediction_path)
 rans_mesh = pv.read(rans_path)

@@ -27,12 +27,12 @@ plt.rcParams['axes.spines.right'] = False
 plt.rcParams['xtick.top'] = False
 plt.rcParams['ytick.right'] = False
 
-alpha_df = pd.read_csv(r'dataset\risultati_solver\CSV_files\timestep_sweep\8_m_s\timestep_sweep_8_m_s_alpha_distribution.csv')
-Cp_df = pd.read_csv(r'dataset\risultati_solver\CSV_files\timestep_sweep\8_m_s\timestep_sweep_8_m_s_Cp_time_series.csv')
-Ct_df = pd.read_csv(r'dataset\risultati_solver\CSV_files\timestep_sweep\8_m_s\timestep_sweep_8_m_s_Ct_time_series.csv')
-Energy_df = pd.read_csv(r'dataset\risultati_solver\CSV_files\timestep_sweep\8_m_s\timestep_sweep_8_m_s_Energy_spectrum.csv')
-force_df = pd.read_csv(r'dataset\risultati_solver\CSV_files\timestep_sweep\8_m_s\timestep_sweep_8_m_s_force_profile.csv')
-Uref=8.0
+alpha_df = pd.read_csv(r'dataset\risultati_solver\11ms\CSV_files\timestep_sweep\11_4_m_s\timestep_sweep_11_4_m_s_alpha_distribution.csv')
+Cp_df = pd.read_csv(r'dataset\risultati_solver\11ms\CSV_files\timestep_sweep\11_4_m_s\timestep_sweep_11_4_m_s_Cp_time_series.csv')
+Ct_df = pd.read_csv(r'dataset\risultati_solver\11ms\CSV_files\timestep_sweep\11_4_m_s\timestep_sweep_11_4_m_s_Ct_time_series.csv')
+Energy_df = pd.read_csv(r'dataset\risultati_solver\11ms\CSV_files\timestep_sweep\11_4_m_s\timestep_sweep_11_4_m_s_Energy_spectrum.csv')
+force_df = pd.read_csv(r'dataset\risultati_solver\11ms\CSV_files\timestep_sweep\11_4_m_s\timestep_sweep_11_4_m_s_force_profile.csv')
+Uref=11.4
 
 ### plot Cp and Ct values against references
 

@@ -1,0 +1,11 @@
+=== Gruppo: timestep_sweep ===
+Simulazione: 11.4 m/s
+  Cp medio: 0.448355
+  Ct medio: 0.064051
+  Integrali forze: tangenziale = 1120.575233, normale = 6336.842356
+  Integrale AoA medio = 11.677832
+  Spettro energetico calcolato su 3000 frequenze
+
+
+=== Riepilogo comparativo ===
+Nessun dato comparabile disponibile.

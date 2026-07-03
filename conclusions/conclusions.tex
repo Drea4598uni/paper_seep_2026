@@ -27,14 +27,15 @@ predictive setting. The main findings can be summarised as follows.
     consistently with the underlying flow physics.
 
     \item The trained network reproduced the LES-equivalent eddy
-    viscosity with a validation $R^2 = 0.9934$
-    ($RMSE = 0.2588$, $MAE = 0.1831$ in physical space), confirming that the learned correction drastically
+    viscosity with a validation $R^2 = 0.9952$
+    ($RMSE = 0.2635$, $MAE = 0.1797$ in physical space), confirming that the learned correction drastically
     reduces the discrepancy with the LES-equivalent closure.
 
     \item The comparison with an equivalent network trained without
-    clustering showed that, although the unclustered model attains
-    marginally lower MSE and MAE, its lower $R^2$ reflects a poorer
-    reconstruction of the data variance. The benefit of clustering is
+    clustering showed that the clustered model attains slightly better
+    metrics across the board ($R^2 = 0.9952$ against $0.9950$, with lower
+    $RMSE$ and $MAE$), reflecting a better reconstruction of the data
+    variance. The benefit of clustering is
     most evident in the near-terrain region, where the clustered model
     is markedly more consistent with the LES reference, since it is able
     to learn separately the distinct near-wall and free-stream flow
@@ -57,6 +58,15 @@ predictive setting. The main findings can be summarised as follows.
     combination of far-wake accuracy and reduced cost is precisely what
     is required for wind farm layout and energy-yield studies.
 
+    \item Although trained on a single inflow velocity
+    ($U_\infty = 11\,\mathrm{m/s}$), the closure generalised well to the
+    unseen $8$ and $15\,\mathrm{m/s}$ conditions: a scalar metric based on
+    the integral of the velocity-deficit difference with respect to the
+    LES showed that, at all three inflow velocities, the standard RANS
+    model systematically overestimates the wake deficit while every
+    RANS-ML configuration remains close to the LES reference throughout
+    the wake.
+
     \item Beyond the velocity field, the model also reproduced the rotor
     forces and the $C_p$/$C_t$ coefficients in good agreement with the
     reference curves, with only a slight underestimation partly
@@ -65,19 +75,32 @@ predictive setting. The main findings can be summarised as follows.
     loading and the associated power production.
 \end{itemize}
 
-Some limitations should be acknowledged. The model was trained on a
-single operating condition and on a relatively small dataset, which
-results in a slight overfitting trend and limits its generalisation. A
+Two aspects deserve to be stated clearly, so that they are not mistaken
+for weaknesses. First, training on a single operating condition and a
+compact dataset is a deliberate design choice and the very premise of the
+methodology, not a constraint: the aim is to calibrate the closure once,
+on an affordable amount of high-fidelity data, and to reuse it across the
+operating envelope, as the transfer to the unseen $8$ and
+$15\,\mathrm{m/s}$ conditions and to coarser grids confirms. The mild
+train/validation gap is the expected signature of this compact
+calibration and, as shown, it does not degrade the out-of-sample
+performance. Second, by construction the model remains a scalar
+eddy-viscosity closure: it corrects the magnitude and distribution of
+$\nu_t$ to reproduce the LES mixing, but does not represent the
+Reynolds-stress anisotropy, a deliberate trade-off that keeps the closure
+directly embeddable in standard solvers.
+
+Genuine residual limitations remain and outline the path forward. A
 residual underestimation bias persists in the far-upstream inflow region,
 inherited from the synthetic inlet boundary condition, and the fine-grid
-configuration still overestimates the far-wake deficit.
-
-Future work will therefore focus on enlarging the training dataset to
-include multiple inflow velocities, turbulence intensities and thermal
-stability conditions, in order to improve the generalisation of the
-closure, and on extending the methodology to multi-turbine
+configuration still overestimates the far-wake deficit. Future work will
+therefore enlarge the training dataset to multiple inflow velocities,
+turbulence intensities and thermal-stability conditions, so as to broaden
+the validated operating range and further tighten the closure; it will
+explore tensorial, anisotropy-aware corrections to overcome the scalar
+limitation; and it will extend the methodology to multi-turbine
 configurations to assess wake-interaction effects. The compactness and
 the reduced cost of the proposed data-driven closure also make it a
-promising candidate for future real-time wind farm monitoring and
-control applications, where accurate yet inexpensive representations of
-the wake field are essential.
+promising candidate for future real-time wind farm monitoring and control
+applications, where accurate yet inexpensive representations of the wake
+field are essential.

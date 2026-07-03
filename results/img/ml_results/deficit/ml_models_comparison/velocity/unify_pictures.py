@@ -24,7 +24,7 @@ plt.rcParams['xtick.top'] = False
 plt.rcParams['ytick.right'] = False
 
 # Load the images
-path = r"D:\File uni\Dottorato\NUT_regression\results\img\ml_results\deficit\ml_models_comparison\velocity"
+path = r"D:\File uni\Dottorato\NUT_regression\results\img\ml_results\11ms\deficit\ml_models_comparison\velocity"
 image_files = glob.glob(path + "/*D.png")
 
 def _extract_x_value(fname: str):
@@ -86,5 +86,5 @@ for ax, img in zip(bottom_axes, bottom_images):
 
 plt.subplots_adjust(hspace=0.01, left=0.02, right=0.98, top=0.98, bottom=0.02)
 plt.tight_layout()
-plt.savefig(r"D:\File uni\Dottorato\NUT_regression\results\img\ml_results\deficit\ml_models_comparison\velocity\comparison.png", bbox_inches='tight')
+plt.savefig(r"D:\File uni\Dottorato\NUT_regression\results\img\ml_results\11ms\deficit\ml_models_comparison\velocity\comparison.png", bbox_inches='tight')
 plt.close()

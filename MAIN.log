@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.6.1)  4 JUN 2026 13:14
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.6.1)  3 JUL 2026 11:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -821,7 +821,13 @@ LaTeX Font Info:    Font shape `TU/texgyretermes-math.otf(3)/m/n' will be
 (Font)              scaled to size 8.87904pt on input line 92.
 LaTeX Font Info:    Font shape `TU/texgyretermes-math.otf(3)/m/n' will be
 (Font)              scaled to size 6.59929pt on input line 92.
-(abstract/abstract.tex) (nomenclature/nomenclature.tex
+(abstract/abstract.tex
+Overfull \hbox (0.195pt too wide) in paragraph at lines 1--37
+\TU/TimesNewRoman(0)/m/n/12 lenge for affordable simulation tools. Large Eddy S
+imulation (LES) reproduces the wake physics
+ []
+
+) (nomenclature/nomenclature.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--42
 
  []
@@ -848,13 +854,12 @@ Overfull \hbox (4.02621pt too wide) in paragraph at lines 13--14
 [3]
 
 [4]) (methodology/methodology.tex
+
+[5]
 File: methodology/img/domain_3d_abl.png Graphic file (type bmp)
 <methodology/img/domain_3d_abl.png>
 File: methodology/img/slice_mesh.png Graphic file (type bmp)
 <methodology/img/slice_mesh.png>
-
-
-[5]
 File: methodology/img/cfds_rans_nut_xz.png Graphic file (type bmp)
 <methodology/img/cfds_rans_nut_xz.png>
 File: methodology/img/cfds_les_nutEq_xz.png Graphic file (type bmp)
@@ -863,48 +868,36 @@ File: methodology/img/cfds_modified_nut_xz.png Graphic file (type bmp)
 <methodology/img/cfds_modified_nut_xz.png>
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
 [6]
+
+[7]
 File: methodology/img/clustering_pipelinepng.png Graphic file (type bmp)
 <methodology/img/clustering_pipelinepng.png>
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[7]
-
 [8]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+[9]
 File: methodology/img/NNpipeline.png Graphic file (type bmp)
 <methodology/img/NNpipeline.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: methodology/img/solver_pipeline.png Graphic file (type bmp)
 <methodology/img/solver_pipeline.png>
-) (case_study/case_study.tex
-
-[9]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 
+[10]) (case_study/case_study.tex
 
-[10]) (results/results.tex
+[11]) (results/results.tex
 File: results/img/pca_explained_variance_ratio.png Graphic file (type bmp)
 <results/img/pca_explained_variance_ratio.png>
 File: results/img/pca_features_weights.png Graphic file (type bmp)
 <results/img/pca_features_weights.png>
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[11]
+[12]
 File: results/img/elbow_plot.png Graphic file (type bmp)
 <results/img/elbow_plot.png>
 File: results/img/clustering_result_xy.png Graphic file (type bmp)
@@ -915,11 +908,7 @@ File: results/img/clustering_result_legend.png Graphic file (type bmp)
 <results/img/clustering_result_legend.png>
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[12]
+[13]
 File: results/img/NN_loss_curves.png Graphic file (type bmp)
 <results/img/NN_loss_curves.png>
 File: results/img/ml_results/bias_points/nut_scatter_bias_points_highlighted.pn
@@ -939,8 +928,6 @@ File: results/img/nut_pred_field_xz.png Graphic file (type bmp)
 <results/img/nut_pred_field_xz.png>
 
 
-[13]
-
 [14]
 File: results/img/NN_loss_curves_no_clustering.png Graphic file (type bmp)
 <results/img/NN_loss_curves_no_clustering.png>
@@ -956,9 +943,13 @@ File: results/img/ml_results/bias_points/delta_bias_points_on_y0_slice_no_clust
 ering.png Graphic file (type bmp)
 <results/img/ml_results/bias_points/delta_bias_points_on_y0_slice_no_clustering
 .png>
-File: results/img/ml_results/deficit/ml_models_comparison/velocity/comparison.p
-ng Graphic file (type bmp)
-<results/img/ml_results/deficit/ml_models_comparison/velocity/comparison.png>
+
+
+[15]
+File: results/img/ml_results/11ms/deficit/ml_models_comparison/velocity/compari
+son.png Graphic file (type bmp)
+<results/img/ml_results/11ms/deficit/ml_models_comparison/velocity/comparison.p
+ng>
 File: results/img/predicted_U_field_xz.png Graphic file (type bmp)
 <results/img/predicted_U_field_xz.png>
 File: results/img/predicted_k_field_xz.png Graphic file (type bmp)
@@ -967,23 +958,37 @@ File: results/img/predicted_nut_field_xz.png Graphic file (type bmp)
 <results/img/predicted_nut_field_xz.png>
 
 
-[15]
-File: results/img/ml_results/error_fields/rans_ml_5m_vs_les/error_U.png Graphic
- file (type bmp)
-<results/img/ml_results/error_fields/rans_ml_5m_vs_les/error_U.png>
-File: results/img/ml_results/error_fields/rans_vs_les/error_U.png Graphic file 
-(type bmp)
-<results/img/ml_results/error_fields/rans_vs_les/error_U.png>
-
-
 [16]
+File: results/img/ml_results/11ms/error_fields/rans_ml_5m_vs_les/error_U.png Gr
+aphic file (type bmp)
+<results/img/ml_results/11ms/error_fields/rans_ml_5m_vs_les/error_U.png>
+File: results/img/ml_results/11ms/error_fields/rans_vs_les/error_U.png Graphic 
+file (type bmp)
+<results/img/ml_results/11ms/error_fields/rans_vs_les/error_U.png>
+
+
+[17]
+File: results/img/ml_results/8ms/integral_deficit_difference.png Graphic file (
+type bmp)
+<results/img/ml_results/8ms/integral_deficit_difference.png>
+File: results/img/ml_results/11ms/integral_deficit_difference.png Graphic file 
+(type bmp)
+<results/img/ml_results/11ms/integral_deficit_difference.png>
+File: results/img/ml_results/15ms/integral_deficit_difference.png Graphic file 
+(type bmp)
+<results/img/ml_results/15ms/integral_deficit_difference.png>
+
+
+[18]
 File: results/img/forces_cp_ct.png Graphic file (type bmp)
 <results/img/forces_cp_ct.png>
 File: results/img/forces_profile.png Graphic file (type bmp)
 <results/img/forces_profile.png>
 ) (conclusions/conclusions.tex
 
-[17]) (MAIN.bbl
+[19]) (MAIN.bbl
+
+[20]
 Underfull \hbox (badness 1112) in paragraph at lines 14--18
 []\TU/TimesNewRoman(0)/m/n/12 Mehrshad Gholami Anjiraki, Christian Santoni, Sam
 in Shapourmiandouab, Hossein
@@ -991,23 +996,21 @@ in Shapourmiandouab, Hossein
 
 
 
-[18]
+[21])
 
-[19])
-
-[20] (MAIN.aux)
+[22] (MAIN.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 11223 strings out of 403246
- 238003 string characters out of 5460782
+ 11260 strings out of 403246
+ 240021 string characters out of 5460782
  794548 words of memory out of 5000000
- 39496 multiletter control sequences out of 15000+600000
+ 39529 multiletter control sequences out of 15000+600000
  629051 words of font info for 102 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 73i,13n,107p,1551b,569s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,13n,107p,1937b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on MAIN.xdv (20 pages, 544368 bytes).
+Output written on MAIN.xdv (22 pages, 636084 bytes).

@@ -31,12 +31,12 @@ plt.rcParams['axes.spines.right'] = False
 plt.rcParams['xtick.top'] = False
 plt.rcParams['ytick.right'] = False
 
-path = 'dataset\\risultati_solver\\yNormal_15ml.vtp'
+path = 'dataset\\risultati_solver\\11ms\\yNormal_15ml.vtp'
 mesh = pv.read(path)
 rotor_diameter = 126.0
 mesh.points = mesh.points / rotor_diameter
 
-rans_reference_path = 'dataset\\riferimento rans\\yNormal.vtp'
+rans_reference_path = 'dataset\\ref_rans\\yNormal_11ms.vtp'
 rans_reference_mesh = pv.read(rans_reference_path)
 rans_reference_mesh.points = rans_reference_mesh.points / rotor_diameter
 
