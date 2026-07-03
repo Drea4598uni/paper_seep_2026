@@ -50,6 +50,12 @@ ML_COLORS = {
     "RANS-ML no clustering": "magenta",
 }
 
+
+def display_label(label):
+    """Legend text only: the model is named 'ML-RANS' in the manuscript.
+    Internal keys / output directory names stay 'RANS-ML' / 'rans_ml'."""
+    return label.replace("RANS-ML", "ML-RANS")
+
 # sample line stations (x/D); negative ones are upstream of the rotor
 x = [0.5, 1, 2, 3, 4, 5, 6, 7]
 # the integral metric only makes sense in the wake (downstream of the rotor)
