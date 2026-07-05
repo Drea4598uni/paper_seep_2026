@@ -23,10 +23,12 @@
 % Replaces newtxmath, which under XeLaTeX let math digits fall back to Latin Modern.
 \usepackage{unicode-math}
 \setmathfont{texgyretermes-math.otf}          % Times-clone math font
+\usepackage[protrusion=true]{microtype}       % migliora la giustificazione (protrusion, XeLaTeX)
 
 % ---------- Graphics ----------
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{longtable}          % multi-page cost-model table (introduction)
 
 % ---------- Running header (every page), no page numbers ----------
 \usepackage{fancyhdr}
@@ -110,7 +112,7 @@
 %%%nomenclature
 \input{nomenclature/nomenclature.tex}
 %%%introduction
-\input{introduction/introduction.tex}
+\input{introduction/introduction_new.tex}
 %%%methodology
 \input{methodology/methodology.tex}
 %%%case study

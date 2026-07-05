@@ -1,0 +1,15 @@
+[
+  {"key": "Sebastiani2024",          "cells": 5.5e7,  "steps": 6.0e4, "geom": "full", "model": "URANS", "scale": "single", "off": [5, 7],   "basis": "blade-resolved URANS NREL 5 MW, ~55 M cells; wake-resolving (~6e4 steps)"},
+  {"key": "Sharma2024Exawind",       "cells": 6.0e9,  "steps": 5.0e5, "geom": "full", "model": "LES",   "scale": "single", "off": [-6, 6],  "basis": "ExaWind blade-resolved LES, up to ~6e9 grid points"},
+  {"key": "Kirby2019",               "cells": 2.0e9,  "steps": 1.0e6, "geom": "full", "model": "LES",   "scale": "farm",   "off": [6, 6],   "basis": "blade-resolved (overset hp-adaptive) wind-farm array"},
+  {"key": "coarseALM2016",           "cells": 7.0e6,  "steps": 4.5e4, "geom": "act",  "model": "LES",   "scale": "single", "off": [4, 9],   "basis": "very coarse actuator-line LES, single rotor"},
+  {"key": "Troldborg",               "cells": 1.1e7,  "steps": 7.5e4, "geom": "act",  "model": "LES",   "scale": "single", "off": [5, -11], "basis": "actuator-line LES, single turbine"},
+  {"key": "alessio5-mw",             "cells": 1.7e7,  "steps": 1.0e5, "geom": "act",  "model": "LES",   "scale": "single", "off": [5, 10],  "basis": "NREL 5 MW actuator study"},
+  {"key": "Carloni2026",             "cells": 3.08e7, "steps": 2.0e5, "geom": "act",  "model": "LES",   "scale": "single", "off": [6, 8],   "basis": "LES actuator-line NREL 5 MW in ABL, ~30.8 M cells (this group)"},
+  {"key": "King_2018",               "cells": 9.0e6,  "steps": 1.3e5, "geom": "act",  "model": "LES",   "scale": "single", "off": [6, 9],   "basis": "single-turbine LES training mesh"},
+  {"key": "Steiner2021",             "cells": 2.4e7,  "steps": 1.3e5, "geom": "act",  "model": "LES",   "scale": "farm",   "off": [5, -11], "basis": "wind-tunnel-scale multi-turbine LES reference"},
+  {"key": "Joulin2019",              "cells": 8.0e7,  "steps": 1.0e5, "geom": "act",  "model": "LES",   "scale": "farm",   "off": [5, -10], "basis": "actuator-line mesoscale LES, Horns Rev"},
+  {"key": "Deskos2018",              "cells": 1.0e8,  "steps": 2.2e5, "geom": "act",  "model": "LES",   "scale": "farm",   "off": [5, 7],   "basis": "mesh-adaptive actuator-line turbine arrays"},
+  {"key": "Sebastiani2021Lillgrund", "cells": 1.5e8,  "steps": 1.6e5, "geom": "act",  "model": "LES",   "scale": "farm",   "off": [5, -10], "basis": "actuator-line LES, Lillgrund wind farm"},
+  {"key": "Stevens2014",             "cells": 3.0e8,  "steps": 5.0e5, "geom": "act",  "model": "LES",   "scale": "farm",   "off": [6, 6],   "basis": "concurrent-precursor LES, finite-length wind farm"}
+]

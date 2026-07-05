@@ -1,0 +1,61 @@
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}llccrrrr@{}}
+\caption{Cost-model scenarios behind Fig.~\ref{fig:cost_landscape} (order-of-magnitude estimates) and the literature reference cases overlaid on it. The calculation chain is detailed in the text.}\label{tab:cost_model}\\
+\hline
+Case & Configuration & Model & MW & Cells [$10^{6}$] & $N_\mathrm{steps}$ & Core-h & Cost [EUR] \\
+\hline
+\endfirsthead
+\multicolumn{8}{@{}l}{\footnotesize\itshape Table~\ref{tab:cost_model} -- continued} \\
+\hline
+Case & Configuration & Model & MW & Cells [$10^{6}$] & $N_\mathrm{steps}$ & Core-h & Cost [EUR] \\
+\hline
+\endhead
+\hline
+\endfoot
+\multicolumn{8}{@{}p{0.96\linewidth}}{\footnotesize $^{\dagger}$~Reference-case core-hours are indicative, computed with the same per-cell solver cost as the cost-model scenarios ($C=2\times10^{-4}$~core-s/cell/step for URANS, $3\times10^{-5}$ for LES); the cells and $N_\mathrm{steps}$ of the reference cases are order-of-magnitude placements (see Fig.~\ref{fig:cost_landscape}).} \\
+\hline
+\endlastfoot
+1 & Single, full-geom. & LES & 5 & 390.0 & $3.0\!\times\!10^{7}$ & 98.3M & 73,710 \\
+1 & Single, full-geom. & LES & 15 & 670.0 & $5.8\!\times\!10^{7}$ & 321.6M & 241,200 \\
+1 & Single, full-geom. & URANS & 5 & 64.0 & $6.5\!\times\!10^{4}$ & 232k & 411 \\
+1 & Single, full-geom. & URANS & 15 & 112.0 & $7.8\!\times\!10^{4}$ & 484k & 855 \\
+2 & Single, actuator & LES & 5 & 55.0 & $1.9\!\times\!10^{5}$ & 87k & 65 \\
+2 & Single, actuator & LES & 15 & 61.0 & $2.3\!\times\!10^{5}$ & 115k & 86 \\
+2 & Single, actuator & URANS & 5 & 10.0 & $7.3\!\times\!10^{4}$ & 41k & 72 \\
+2 & Single, actuator & URANS & 15 & 12.4 & $8.7\!\times\!10^{4}$ & 60k & 106 \\
+3 & WF-20, full-geom. & LES & 5 & 7,200 & $6.7\!\times\!10^{7}$ & 3,991.7M & 2,993,760 \\
+3 & WF-20, full-geom. & LES & 15 & 12,800 & $1.3\!\times\!10^{8}$ & 13,516.8M & 10,137,600 \\
+3 & WF-20, full-geom. & URANS & 5 & 1,220 & $1.6\!\times\!10^{5}$ & 10.8M & 19,132 \\
+3 & WF-20, full-geom. & URANS & 15 & 2,180 & $1.9\!\times\!10^{5}$ & 23.0M & 40,697 \\
+4 & WF-40, full-geom. & LES & 5 & 14,350 & $1.1\!\times\!10^{8}$ & 13,500.5M & 10,125,360 \\
+4 & WF-40, full-geom. & LES & 15 & 25,550 & $2.2\!\times\!10^{8}$ & 45,785.6M & 34,339,200 \\
+4 & WF-40, full-geom. & URANS & 5 & 2,435 & $2.9\!\times\!10^{5}$ & 39.3M & 69,427 \\
+4 & WF-40, full-geom. & URANS & 15 & 4,355 & $3.5\!\times\!10^{5}$ & 83.6M & 147,821 \\
+5 & WF-20, actuator & LES & 5 & 500.0 & $4.2\!\times\!10^{5}$ & 1.7M & 1,306 \\
+5 & WF-20, actuator & LES & 15 & 620.0 & $5.0\!\times\!10^{5}$ & 2.6M & 1,928 \\
+5 & WF-20, actuator & URANS & 5 & 140.0 & $1.8\!\times\!10^{5}$ & 1.4M & 2,452 \\
+5 & WF-20, actuator & URANS & 15 & 188.0 & $2.1\!\times\!10^{5}$ & 2.2M & 3,920 \\
+6 & WF-40, actuator & LES & 5 & 950.0 & $7.1\!\times\!10^{5}$ & 5.6M & 4,212 \\
+6 & WF-40, actuator & LES & 15 & 1,190 & $8.4\!\times\!10^{5}$ & 8.4M & 6,281 \\
+6 & WF-40, actuator & URANS & 5 & 275.0 & $3.2\!\times\!10^{5}$ & 5.0M & 8,758 \\
+6 & WF-40, actuator & URANS & 15 & 371.0 & $3.9\!\times\!10^{5}$ & 8.0M & 14,066 \\
+\hline
+\multicolumn{8}{@{}l}{\itshape Literature reference cases (Fig.~\ref{fig:cost_landscape})} \\
+\hline
+Ref [4] & Single, full-geom. & URANS & -- & 55.0 & $6.0\!\times\!10^{4}$ & 183k$^{\dagger}$ & -- \\
+Ref [5] & Single, full-geom. & LES & -- & 6,000 & $5.0\!\times\!10^{5}$ & 25.0M$^{\dagger}$ & -- \\
+Ref [6] & Single, actuator & LES & -- & 7.0 & $4.5\!\times\!10^{4}$ & 3k$^{\dagger}$ & -- \\
+Ref [7] & Single, actuator & LES & -- & 11.0 & $7.5\!\times\!10^{4}$ & 7k$^{\dagger}$ & -- \\
+Ref [9] & Farm, actuator & LES & -- & 24.0 & $1.3\!\times\!10^{5}$ & 26k$^{\dagger}$ & -- \\
+Ref [10] & Farm, actuator & LES & -- & 100.0 & $2.2\!\times\!10^{5}$ & 183k$^{\dagger}$ & -- \\
+Ref [11] & Farm, actuator & LES & -- & 80.0 & $1.0\!\times\!10^{5}$ & 67k$^{\dagger}$ & -- \\
+Ref [12] & Farm, actuator & LES & -- & 150.0 & $1.6\!\times\!10^{5}$ & 200k$^{\dagger}$ & -- \\
+Ref [13] & Farm, actuator & LES & -- & 300.0 & $5.0\!\times\!10^{5}$ & 1.2M$^{\dagger}$ & -- \\
+Ref [14] & Single, actuator & LES & -- & 9.0 & $1.3\!\times\!10^{5}$ & 10k$^{\dagger}$ & -- \\
+Ref [15] & Single, actuator & LES & -- & 17.0 & $1.0\!\times\!10^{5}$ & 14k$^{\dagger}$ & -- \\
+Ref [16] & Single, actuator & LES & -- & 30.8 & $2.0\!\times\!10^{5}$ & 51k$^{\dagger}$ & -- \\
+Ref [17] & Farm, full-geom. & LES & -- & 2,000 & $1.0\!\times\!10^{6}$ & 16.7M$^{\dagger}$ & -- \\
+\end{longtable}
+\endgroup

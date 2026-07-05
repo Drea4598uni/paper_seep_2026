@@ -257,7 +257,7 @@ author = {Moss, Coleman and Maulik, Romit and Moriarty, Patrick and Iungo, Giaco
 year = {2023},
 month = {10},
 pages = {1245-1267},
-title = {Predicting wind farm operations with machine learning and the P2D‐RANS model: A case study for an AWAKEN site},
+title = {Predicting wind farm operations with machine learning and the P2D-RANS model: A case study for an AWAKEN site},
 volume = {27},
 journal = {Wind Energy},
 doi = {10.1002/we.2874}
@@ -332,4 +332,98 @@ author = {King, R. N. and Adcock, C. and Annoni, J. and Dykes, K.},
 title = {Data-Driven Machine Learning for Wind Plant Flow Modeling},
 journal = {Journal of Physics: Conference Series},
 abstract = {In this paper, we introduce a data-driven machine learning framework for improving the accuracy of wind plant flow models by learning turbulence model corrections based on data from higher-fidelity simulations. First, a high-dimensional PDE-constrained optimization problem is solved using gradient-based optimization with adjoints to determine optimal eddy viscosity fields that improve the agreement of a medium-fidelity Reynolds-Averaged Navier Stokes (RANS) model with large eddy simulations (LES). A supervised learning problem is then constructed to find general, predictive representations of the optimal turbulence closure. A machine learning technique using Gaussian process regression is trained to predict the eddy viscosity field based on local RANS flow field information like velocities, pressures, and their gradients. The Gaussian process is trained on LES simulations of a single turbine and implemented in a wind plant simulation with 36 turbines. We show improvement over the baseline RANS model with the machine learning correction, and demonstrate the ability to provide accurate confidence levels for the corrections that enable future uncertainty quantification studies.}
+}
+
+@article{Sebastiani2024,
+  author  = {Sebastiani, Alessandro and Castellani, Francesco and Crasto, Giorgio and Segalini, Antonio},
+  title   = {Blade-resolved numerical simulations of the {NREL} offshore 5 {MW} baseline wind turbine in full scale: a study of proper solver configuration and discretization strategies},
+  journal = {Energy},
+  volume  = {254},
+  pages   = {124313},
+  year    = {2022},
+  doi     = {10.1016/j.energy.2022.124313}
+}
+
+@article{Sharma2024Exawind,
+  author  = {Sharma, Ashesh and Brazell, Michael J. and Vijayakumar, Ganesh and Ananthan, Shreyas and others},
+  title   = {{ExaWind}: Open-source {CFD} for hybrid-{RANS}/{LES} geometry-resolved wind turbine simulations in atmospheric flows},
+  journal = {Wind Energy},
+  volume  = {27},
+  number  = {3},
+  pages   = {225--257},
+  year    = {2024},
+  doi     = {10.1002/we.2886}
+}
+
+@misc{coarseALM2016,
+  author = {Mart{\'i}nez-Tossas, Luis A. and Churchfield, Matthew J. and Meneveau, Charles},
+  title  = {Large Eddy Simulation of wind turbine wakes on very coarse grid resolutions using an actuator line model},
+  year   = {2016},
+  eprint = {1605.03153},
+  archivePrefix = {arXiv},
+  primaryClass  = {physics.flu-dyn},
+  note   = {arXiv:1605.03153}
+}
+
+@misc{Turisini2023Leonardo,
+  author = {Turisini, Matteo and Amati, Giorgio and Cestari, Mirko},
+  title  = {{LEONARDO}: A Pan-European Pre-Exascale Supercomputer for {HPC} and {AI} Applications},
+  year   = {2023},
+  eprint = {2307.16885},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.DC},
+  note   = {arXiv:2307.16885}
+}
+
+@article{Kirby2019,
+  author  = {Kirby, Andrew C. and Brazell, Michael J. and Yang, Zhi and Roy, Rajib and others},
+  title   = {Wind farm simulations using an overset hp-adaptive approach with blade-resolved turbine models},
+  journal = {International Journal of High Performance Computing Applications},
+  volume  = {33},
+  number  = {5},
+  pages   = {897--923},
+  year    = {2019},
+  doi     = {10.1177/1094342019832960}
+}
+
+@article{Deskos2018,
+  author  = {Deskos, Georgios and Piggott, Matthew D.},
+  title   = {Mesh-adaptive simulations of horizontal-axis turbine arrays using the actuator line method},
+  journal = {Wind Energy},
+  volume  = {21},
+  number  = {12},
+  pages   = {1266--1281},
+  year    = {2018},
+  doi     = {10.1002/we.2253}
+}
+
+@article{Joulin2019,
+  author  = {Joulin, Pierre-Antoine and Mayol, Marie-Laure and Masson, Vincent and others},
+  title   = {The actuator line method in the meteorological {LES} model {Meso-NH} to analyze the {Horns Rev 1} wind farm photo case},
+  journal = {Frontiers in Earth Science},
+  volume  = {7},
+  pages   = {350},
+  year    = {2019},
+  doi     = {10.3389/feart.2019.00350}
+}
+
+@article{Sebastiani2021Lillgrund,
+  author  = {Sebastiani, Alessandro and Castellani, Francesco and Crasto, Giorgio and Segalini, Antonio},
+  title   = {Data analysis and simulation of the {Lillgrund} wind farm},
+  journal = {Wind Energy},
+  volume  = {24},
+  number  = {6},
+  pages   = {634--648},
+  year    = {2021},
+  doi     = {10.1002/we.2594}
+}
+
+@article{Stevens2014,
+  author  = {Stevens, Richard J. A. M. and Graham, Jason and Meneveau, Charles},
+  title   = {A concurrent precursor inflow method for large eddy simulations and applications to finite length wind farms},
+  journal = {Renewable Energy},
+  volume  = {68},
+  pages   = {46--50},
+  year    = {2014},
+  doi     = {10.1016/j.renene.2014.01.024}
 }

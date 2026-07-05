@@ -16,11 +16,94 @@ Mehrshad Gholami~Anjiraki, Christian Santoni, Samin Shapourmiandouab, Hossein
 \newblock Wind farm layout optimization using a novel machine learning
   approach, 09 2025.
 
+\bibitem{Sebastiani2024}
+Alessandro Sebastiani, Francesco Castellani, Giorgio Crasto, and Antonio
+  Segalini.
+\newblock Blade-resolved numerical simulations of the {NREL} offshore 5 {MW}
+  baseline wind turbine in full scale: a study of proper solver configuration
+  and discretization strategies.
+\newblock {\em Energy}, 254:124313, 2022.
+
+\bibitem{Sharma2024Exawind}
+Ashesh Sharma, Michael~J. Brazell, Ganesh Vijayakumar, Shreyas Ananthan, et~al.
+\newblock {ExaWind}: Open-source {CFD} for hybrid-{RANS}/{LES}
+  geometry-resolved wind turbine simulations in atmospheric flows.
+\newblock {\em Wind Energy}, 27(3):225--257, 2024.
+
+\bibitem{coarseALM2016}
+Luis~A. Mart{\'i}nez-Tossas, Matthew~J. Churchfield, and Charles Meneveau.
+\newblock Large eddy simulation of wind turbine wakes on very coarse grid
+  resolutions using an actuator line model, 2016.
+\newblock arXiv:1605.03153.
+
+\bibitem{Troldborg}
+Niels Troldborg, Frederik Zahle, Pierre-Elouan Réthoré, and Niels~N.
+  Sørensen.
+\newblock Comparison of wind turbine wake properties in non-sheared inflow
+  predicted by different computational fluid dynamics rotor models.
+\newblock {\em Wind Energy}, 18(7):1239--1250, 2015.
+
+\bibitem{Turisini2023Leonardo}
+Matteo Turisini, Giorgio Amati, and Mirko Cestari.
+\newblock {LEONARDO}: A pan-european pre-exascale supercomputer for {HPC} and
+  {AI} applications, 2023.
+\newblock arXiv:2307.16885.
+
 \bibitem{Steiner2021}
 Julia Steiner, Richard Dwight, and Axelle Vire.
 \newblock Data-driven rans closures for wind turbine wakes under neutral
   conditions.
 \newblock {\em Computers \& Fluids}, 233:105213, 11 2021.
+
+\bibitem{Deskos2018}
+Georgios Deskos and Matthew~D. Piggott.
+\newblock Mesh-adaptive simulations of horizontal-axis turbine arrays using the
+  actuator line method.
+\newblock {\em Wind Energy}, 21(12):1266--1281, 2018.
+
+\bibitem{Joulin2019}
+Pierre-Antoine Joulin, Marie-Laure Mayol, Vincent Masson, et~al.
+\newblock The actuator line method in the meteorological {LES} model {Meso-NH}
+  to analyze the {Horns Rev 1} wind farm photo case.
+\newblock {\em Frontiers in Earth Science}, 7:350, 2019.
+
+\bibitem{Sebastiani2021Lillgrund}
+Alessandro Sebastiani, Francesco Castellani, Giorgio Crasto, and Antonio
+  Segalini.
+\newblock Data analysis and simulation of the {Lillgrund} wind farm.
+\newblock {\em Wind Energy}, 24(6):634--648, 2021.
+
+\bibitem{Stevens2014}
+Richard J. A.~M. Stevens, Jason Graham, and Charles Meneveau.
+\newblock A concurrent precursor inflow method for large eddy simulations and
+  applications to finite length wind farms.
+\newblock {\em Renewable Energy}, 68:46--50, 2014.
+
+\bibitem{King_2018}
+R.~N. King, C.~Adcock, J.~Annoni, and K.~Dykes.
+\newblock Data-driven machine learning for wind plant flow modeling.
+\newblock {\em Journal of Physics: Conference Series}, 1037(7):072004, jun
+  2018.
+
+\bibitem{alessio5-mw}
+Lorenzo Cappugi, Alessio Castorrini, Aldo Bonfiglioli, Edmondo Minisci, and
+  Sergio Campobasso.
+\newblock Machine learning-enabled prediction of wind turbine energy yield
+  losses due to general blade leading edge erosion.
+\newblock {\em Energy Conversion and Management}, 245:114567, 10 2021.
+
+\bibitem{Carloni2026}
+Andrea Carloni, Giovanni Delibra, Filippo De~Girolamo, Valerio~Francesco
+  Barnabei, and Lorenzo Tieghi.
+\newblock Data-driven decomposition of horizontal-axis wind-turbine wakes.
+\newblock In {\em ASME Turbo Expo 2026}, Milan, Italy, 2026.
+
+\bibitem{Kirby2019}
+Andrew~C. Kirby, Michael~J. Brazell, Zhi Yang, Rajib Roy, et~al.
+\newblock Wind farm simulations using an overset hp-adaptive approach with
+  blade-resolved turbine models.
+\newblock {\em International Journal of High Performance Computing
+  Applications}, 33(5):897--923, 2019.
 
 \bibitem{72116acdc5aa4b3b8fc752f1b2fa9958}
 J.~Steiner.
@@ -30,7 +113,7 @@ J.~Steiner.
 \bibitem{Moss2023}
 Coleman Moss, Romit Maulik, Patrick Moriarty, and Giacomo Iungo.
 \newblock Predicting wind farm operations with machine learning and the
-  p2d‐rans model: A case study for an awaken site.
+  p2d-rans model: A case study for an awaken site.
 \newblock {\em Wind Energy}, 27:1245--1267, 10 2023.
 
 \bibitem{Infield2022}
@@ -57,24 +140,12 @@ Julia Ling, Andrew Kurzawski, and Jeremy Templeton.
   with embedded invariance.
 \newblock {\em Journal of Fluid Mechanics}, 807:155--166, 11 2016.
 
-\bibitem{King_2018}
-R.~N. King, C.~Adcock, J.~Annoni, and K.~Dykes.
-\newblock Data-driven machine learning for wind plant flow modeling.
-\newblock {\em Journal of Physics: Conference Series}, 1037(7):072004, jun
-  2018.
-
 \bibitem{Clustering_tieghi}
 Lorenzo Tieghi, Davide Cerbarano, Filippo De~Girolamo, Valerio Barnabei, and
   Giovanni Delibra.
 \newblock A novel methodology for the automatic decomposition of hawt wakes
   with k--means clustering.
 \newblock {\em Wind Energy}, 28, 05 2025.
-
-\bibitem{Carloni2026}
-Andrea Carloni, Giovanni Delibra, Filippo De~Girolamo, Valerio~Francesco
-  Barnabei, and Lorenzo Tieghi.
-\newblock Data-driven decomposition of horizontal-axis wind-turbine wakes.
-\newblock In {\em ASME Turbo Expo 2026}, Milan, Italy, 2026.
 
 \bibitem{10.1115/1.1471361}
 J.~N. Sorensen and W.~Z. Shen.
@@ -142,19 +213,5 @@ Luis Martínez~Tossas, Stefano Leonardi, Matthew Churchfield, and Patrick
 \newblock A comparison of actuator disk and actuator line wind turbine models
   and best practices for their use.
 \newblock 01 2012.
-
-\bibitem{alessio5-mw}
-Lorenzo Cappugi, Alessio Castorrini, Aldo Bonfiglioli, Edmondo Minisci, and
-  Sergio Campobasso.
-\newblock Machine learning-enabled prediction of wind turbine energy yield
-  losses due to general blade leading edge erosion.
-\newblock {\em Energy Conversion and Management}, 245:114567, 10 2021.
-
-\bibitem{Troldborg}
-Niels Troldborg, Frederik Zahle, Pierre-Elouan Réthoré, and Niels~N.
-  Sørensen.
-\newblock Comparison of wind turbine wake properties in non-sheared inflow
-  predicted by different computational fluid dynamics rotor models.
-\newblock {\em Wind Energy}, 18(7):1239--1250, 2015.
 
 \end{thebibliography}
